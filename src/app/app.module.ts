@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import {UserService} from './services/user.service';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
+//import {ValidationService} from './register/validators';
 
 @NgModule({
   declarations: [
