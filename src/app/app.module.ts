@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {UserService} from './services/user.service';
+import {RoleService} from './services/role.service';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 //import {ValidationService} from './register/validators';
@@ -18,7 +19,7 @@ import { RegisterComponent } from './register/register.component';
     ReactiveFormsModule ,
     HttpModule
   ],
-  providers: [UserService],
+  providers: [UserService,RoleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

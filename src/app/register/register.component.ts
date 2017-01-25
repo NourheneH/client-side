@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import {UserService} from '../services/user.service';
+import {RoleService} from '../services/role.service';
 import { User } from '../models/users';
 import {Role} from '../models/role';
 import { matchingPassword } from './validators';
@@ -17,13 +18,33 @@ export class RegisterComponent implements OnInit {
 
     users: FormGroup;
     
-    roles =[
-        new Role('Admin'),
-        new Role('Simple User'),
-       // new Role('Moderator'),
-    ];
-    constructor(public fb: FormBuilder,private userService:UserService) { 
+   roles :Role[] =[];
+    constructor(public fb: FormBuilder,private userService:UserService, private roleService:RoleService) { 
          this.userService = userService;
+/*
+     this.roleService.getRoles().then(function(res){
+            roles = res.roles;
+        }, function(res){
+            roles = res.roles;
+        });
+/*
+
+        this.roleService.getRoles().success().error(funv)
+
+       /*  this.roleService.getRoles()
+            .subscribe(roles => {
+                this.roles = roles;
+            }); */
+          //  this.roles=[];
+          this.roleService.getRoles().then(
+             function(res){
+                  res.subscribe( function(r){
+                      console.log('here',r._body);
+                       this.roles = r._body.message;
+                  } );
+              }
+             
+          );
     }
 
 
