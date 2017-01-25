@@ -16,6 +16,7 @@ import { matchingPassword } from './validators';
 export class RegisterComponent implements OnInit {
 
     users: FormGroup;
+    
     roles =[
         new Role('Admin'),
         new Role('Simple User'),
@@ -40,11 +41,11 @@ export class RegisterComponent implements OnInit {
     //[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*
     //, Validators.pattern('/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/')]
   }
-      addUser({ value, valid }: { value: User, valid: boolean, role: Role }) {
-        console.log(value, valid)
-         console.log(
-            this.roles[0]
-         )   
+      addUser({ value, valid }: { value: User, valid: boolean}) {
+        console.log(value, valid) 
+        console.log(
+           this.roles[0]
+        )
 }
    
        
