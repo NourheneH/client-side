@@ -20,16 +20,16 @@ export class RegisterComponent implements OnInit {
          this.userService = userService;
 
 
- /*
-          this.roleService.getRoles().then(
+ 
+          this.userService.getUsers().then(
              function(res){
                   res.subscribe( function(r){
                       console.log('here',r.data);
-                       this.roles = r.data;
+                      this.users = r.data;
                   } );
               }
              
-          ); */
+          ); 
     }
 
 
@@ -47,10 +47,41 @@ export class RegisterComponent implements OnInit {
     //[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*
     //, Validators.pattern('/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/')]
   }
-      addUser({ value, valid }: { value: User, valid: boolean}) {
+    addUser({ value, valid }: { value: User, valid: boolean}) {
         console.log(value, valid) 
 }
-   
+
+/*
+    this.roleService.getRoles().then(
+             function(res){
+                  res.subscribe( function(r){
+                      console.log('here',r.message);
+                       this.roles = r.message;
+                  } );
+              }
+             
+          );
+ */
+  /* addUser(users){
+        //users.preventDefault();
+        var newUser = {
+            isAdmin: false}
+
+       // this.users.push(newUser);
+        this.userService.addUser(newUser).then(function(res){
+                res.subscribe(function(user){
+             
+        users = this.fb.array([])
+            users.push(user);
+        })
+        });
+        console.log('here',users.data);
+        //this.taskService.addTask(newTask)
+         //   .subscribe(task => {
+           //     this.tasks.push(task);
+             //   this.title = '';
+           // });
+    }*/
        
 
 }

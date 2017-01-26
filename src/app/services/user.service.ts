@@ -8,15 +8,24 @@ export class UserService{
         console.log("User service start ...")
     }
 
-  getUsers(){
-        return this.http.get('http://localhost:3000/users')
-            .map(res => res.json());
+  getUsers(): Promise<any>{
+        let users=  this.http.get('http://localhost:3000/users')
+            .map(_body => _body.json());
+            return Promise.resolve(users);
     }
-
-     addUser(newUser){
+/*
+  getRoles(): Promise<any>{
+        let roles = this.http.get('http://localhost:3000/roles')
+            .map(_body => _body.json());
+             
+        return    Promise.resolve(roles);
+    }
+     addUser(newUser) : Promise<any>{
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('/user', JSON.stringify(newUser), {headers: headers})
-            .map(res => res.json());
-    }
+        let user =  this.http.post('http://localhost:3000/user', JSON.stringify(newUser), {headers: headers})
+            .map(_body => _body.json());
+
+            return Promise.resolve(user);
+    }*/
 }
