@@ -1,0 +1,21 @@
+{
+  "name": "project-client",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Mahmoud <mahmoud.nbet@proxym-it.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/NourheneH/client-side",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

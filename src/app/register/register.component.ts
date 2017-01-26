@@ -39,8 +39,7 @@ export class RegisterComponent implements OnInit {
           this.roleService.getRoles().then(
              function(res){
                   res.subscribe( function(r){
-                      console.log('here',r._body);
-                       this.roles = r._body.message;
+                       this.roles = r.message;
                   } );
               }
              

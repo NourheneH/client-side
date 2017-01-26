@@ -12,8 +12,8 @@ export class RoleService{
   
 
   getRoles(): Promise<any>{
-        let roles = this.http.get('http://localhost:3000/roles');
-            //.map(_body => _body.json());
+        let roles = this.http.get('http://localhost:3000/roles')
+            .map(_body => _body.json());
              
         return    Promise.resolve(roles);
     }
