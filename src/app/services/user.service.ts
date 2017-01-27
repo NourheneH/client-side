@@ -24,20 +24,22 @@ export class UserService{
              
         return    Promise.resolve(roles);
     }*/
-   /* addUser(newUser) : Promise<any>{
+   addUser(newUser) : Promise<any>{
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let user =  this.http.post('http://localhost:3000/user', JSON.stringify(newUser), {headers: headers})
             .map(_body => _body.json());
 
             return Promise.resolve(user);
-    }*/
-      addUser(newUser){
+    }
+     /* addUser(newUser){
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         return this.http.post('http://localhost:3000/user', JSON.stringify(newUser), {headers: headers})
             .map(res => res.json());
     }
+
+    /* JSON.parse(JSON.stringify(newUser)) */
     /*
     	public addUser(body:User){
 		let options = new RequestOptions({

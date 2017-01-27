@@ -15,7 +15,9 @@ import { matchingPassword } from './validators';
 export class RegisterComponent implements OnInit {
 
     users: FormGroup;
+    userList: User[];
    // userss : User;
+   //firstnam : String;
     
     constructor(public fb: FormBuilder,private userService:UserService) { 
          this.userService = userService;
@@ -65,7 +67,7 @@ export class RegisterComponent implements OnInit {
  */
   addUser(){
         //users.preventDefault();
-        var newUser ;
+     var newUser = this.users.value;
 
        // this.users.push(newUser);
       /*  this.userService.addUser(newUser).then(function(res){
@@ -77,13 +79,17 @@ export class RegisterComponent implements OnInit {
         })
         });
     */
-    this.userService.addUser(newUser)
-           .subscribe(newUser => {
-     //   const userArray = <FormArray>this.users.controls['users'];  
-           // userArray.push(newUser);
-            console.log('here',newUser.data);
-             //  this.title = '';
+    this.userService.addUser(newUser).then(function(res){
+          res.subscribe(newUser => {
+       //   <FormArray>this.users.push(newUser);
+      //  const userArray = <FormArray>this.users;  
+        // userArray.push(newUser);
+     // userList.push(newUser);
+            console.log('here',newUser);
+             
             });
+    })
+         
     }
        
 
