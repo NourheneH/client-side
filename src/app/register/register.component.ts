@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
 import {UserService} from '../services/user.service';
 import { User } from '../models/users';
 import { matchingPassword } from './validators';
@@ -15,12 +15,13 @@ import { matchingPassword } from './validators';
 export class RegisterComponent implements OnInit {
 
     users: FormGroup;
+   // userss : User;
     
     constructor(public fb: FormBuilder,private userService:UserService) { 
          this.userService = userService;
 
 
- 
+ /*
           this.userService.getUsers().then(
              function(res){
                   res.subscribe( function(r){
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
                   } );
               }
              
-          ); 
+          ); */
     }
 
 
@@ -47,9 +48,9 @@ export class RegisterComponent implements OnInit {
     //[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*
     //, Validators.pattern('/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/')]
   }
-    addUser({ value, valid }: { value: User, valid: boolean}) {
+  /*  addUser({ value, valid }: { value: User, valid: boolean}) {
         console.log(value, valid) 
-}
+}*/
 
 /*
     this.roleService.getRoles().then(
@@ -62,26 +63,28 @@ export class RegisterComponent implements OnInit {
              
           );
  */
-  /* addUser(users){
+  addUser(){
         //users.preventDefault();
-        var newUser = {
-            isAdmin: false}
+        var newUser ;
 
        // this.users.push(newUser);
-        this.userService.addUser(newUser).then(function(res){
-                res.subscribe(function(user){
-             
-        users = this.fb.array([])
-            users.push(user);
+      /*  this.userService.addUser(newUser).then(function(res){
+                res.subscribe(function(newUser){
+            const userArray = <FormArray>this.users; 
+      //  users = this.fb.array([])
+            userArray.push(this.newUser);
+            console.log('here',newUser);
         })
         });
-        console.log('here',users.data);
-        //this.taskService.addTask(newTask)
-         //   .subscribe(task => {
-           //     this.tasks.push(task);
-             //   this.title = '';
-           // });
-    }*/
+    */
+    this.userService.addUser(newUser)
+           .subscribe(newUser => {
+     //   const userArray = <FormArray>this.users.controls['users'];  
+           // userArray.push(newUser);
+            console.log('here',newUser.data);
+             //  this.title = '';
+            });
+    }
        
 
 }

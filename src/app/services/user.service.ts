@@ -1,9 +1,13 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers} from '@angular/http';
+import {Http, Response, Headers, RequestOptions } from '@angular/http';
+import {User} from '../models/users';
+import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserService{
+
+    private BASE_URL:string = 'http://localhost:3000/user/';
     constructor(private http: Http){
         console.log("User service start ...")
     }
@@ -19,8 +23,8 @@ export class UserService{
             .map(_body => _body.json());
              
         return    Promise.resolve(roles);
-    }
-     addUser(newUser) : Promise<any>{
+    }*/
+   /* addUser(newUser) : Promise<any>{
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
         let user =  this.http.post('http://localhost:3000/user', JSON.stringify(newUser), {headers: headers})
@@ -28,4 +32,19 @@ export class UserService{
 
             return Promise.resolve(user);
     }*/
+      addUser(newUser){
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('http://localhost:3000/user', JSON.stringify(newUser), {headers: headers})
+            .map(res => res.json());
+    }
+    /*
+    	public addUser(body:User){
+		let options = new RequestOptions({
+        	headers: new Headers({ 'Content-Type': 'application/json;charset=UTF-8' }) 
+        });
+		return this.http.post(`${this.BASE_URL}`,JSON.stringify(body), options)
+			.map((res:Response) => res.json())
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}*/
 }
