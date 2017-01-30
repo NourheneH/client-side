@@ -68,6 +68,7 @@ export class RegisterComponent implements OnInit {
   addUser(){
         //users.preventDefault();
      var newUser = this.users.value;
+     
 
        // this.users.push(newUser);
       /*  this.userService.addUser(newUser).then(function(res){
