@@ -1,3 +1,7 @@
-<p>
-  home works!
-</p>
+<div>
+  <ul class="nav navbar-nav navbar-right">
+                <li><a [routerLink]="['']" *ngIf="!isLoggedin">Login</a></li>
+                <li><a *ngIf="isLoggedin">{{firstname}}</a></li>
+                <li><a *ngIf="isLoggedin" (click)="logout()"> Logout </a></li>
+            </ul>
+</div>

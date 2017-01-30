@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {LoginService} from '../services/login.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-  constructor() { }
+  private isLoggedin: boolean;
+    private firstname:string;
 
-  ngOnInit() {
-  }
+    constructor(public loginService: LoginService) {
+        this.isLoggedin = loginService.isLoggedin();
+        this.firstname = JSON.parse(localStorage.getItem("username"));
+    }
 
+    logout(){
+        this.loginService.logout();
+    }
 }

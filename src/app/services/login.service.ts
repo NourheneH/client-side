@@ -29,7 +29,7 @@ export class LoginService{
             response => {
                 if (JSON.stringify(response.json().success) === "true") {
                     localStorage.setItem('id_token', JSON.stringify(response.json().token));
-                    localStorage.setItem('email', JSON.stringify(response.json().email));
+                    localStorage.setItem('firstanem', JSON.stringify(response.json().firstname));
                    this.router.navigate(['home']);
                 }
                 else {
