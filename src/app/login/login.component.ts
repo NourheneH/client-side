@@ -18,6 +18,7 @@ user: User;
 
     login() {
         this.loginService.login(this.user);
+        // console.log(t)
     }
 
 

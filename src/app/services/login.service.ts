@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http } from '@angular/http';
-//import { contentHeaders } from '../common/headers';
+import { contentHeaders } from '../common/headers';
 import { User } from '../models/users';
 import { tokenNotExpired } from 'angular2-jwt/angular2-jwt.js';
 
@@ -23,14 +23,18 @@ export class LoginService{
     }
 
         login(user: User) {
+          //  console.log('login passe');
         let body = JSON.stringify(user);
-        this.http.post('http://localhost:3000/users/authenticate', body )
+        
+        this.http.post('http://localhost:3000/authenticate', body, {headers:contentHeaders } )
             .subscribe(
             response => {
+                console.log('login');
                 if (JSON.stringify(response.json().success) === "true") {
                     localStorage.setItem('id_token', JSON.stringify(response.json().token));
-                    localStorage.setItem('firstanem', JSON.stringify(response.json().firstname));
+                    localStorage.setItem('firstname', JSON.stringify(response.json().firstname));
                    this.router.navigate(['home']);
+                   
                 }
                 else {
                     window.alert(JSON.stringify(response.json().message));
