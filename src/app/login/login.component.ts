@@ -17,19 +17,21 @@ user: User;
     }
 
     login() {
-        console.log('isloggedin');
-        this.loginService.login(this.user).then(
-            data => {
-                if(data) {
-                    console.log('here', data);
-                     this.router.navigate(['home']);
-                }
-            }
+        
+        this.loginService.login(this.user).subscribe(
+          res => {
+               console.log('isloggedin');
+          }
         );
         
        
     }
 
-
+/**data => {
+                if(data) {
+                    console.log('here', data);
+                     this.router.navigate(['home']);
+                }
+            } */
 
 }
