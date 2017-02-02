@@ -18,13 +18,17 @@ user: User;
 
     login() {
         
-        this.loginService.login(this.user).subscribe(
+      /*  this.loginService.login(this.user).subscribe(
           res => {
                console.log('isloggedin');
+               if ( res == true) {
+                   console.log('yes ');
+               }
           }
         );
-        
-       
+        */
+        this.loginService.login(this.user);
+        console.log('here');
     }
 
 /**data => {

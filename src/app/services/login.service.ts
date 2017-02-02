@@ -10,19 +10,32 @@ import { tokenNotExpired } from 'angular2-jwt/angular2-jwt.js';
 @Injectable()
 export class LoginService{ 
 
-public token: String;
+//public token: String;
             constructor (
                 private router: Router,
                 private http: Http
             ){
                 var user = User;
-                this.token ;
+  //              this.token ;
             }
 
-
+                login(credentials) {
+    this.http.post('http://localhost:3000/authenticate', credentials)
+      .map(res => res.json())
+      .subscribe(
+        // We're assuming the response will be an object
+        // with the JWT on an id_token key
+        data =>{ localStorage.setItem('id_token', data.id_token),
+                console.log('isloggedin');   
+        },
+        error => console.log(error)
+        
+      );
+  }
+/*
             login(newUser): Observable<boolean> {
                 console.log('service started');
-        return this.http.post('http://localhost:3000/authenticate', JSON.stringify({newUser}))
+        return this.http.post('http://localhost:3000/authenticate', JSON.stringify(newUser))
             .map((response: Response) => {
                  console.log('here', newUser);
                 // login successful if there's a jwt token in the response
@@ -32,7 +45,7 @@ public token: String;
                     this.token = token;
                     console.log('here');
                     // store username and jwt token in local storage to keep user logged in between page refreshes
-                    window.localStorage.setItem('currentUser', JSON.stringify({ username: newUser.fistname, token: token }));
+                    window.sessionStorage.setItem('currentUser', JSON.stringify({ username: newUser.fistname, token: token }));
 
                     // return true to indicate successful login
                     return true;
