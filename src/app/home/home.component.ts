@@ -12,7 +12,7 @@ export class HomeComponent {
     private firstname:string;
 
     constructor(public loginService: LoginService) {
-        this.isLoggedin = loginService.isLoggedin();
+      //  this.isLoggedin = loginService.isLoggedin();
         this.firstname = JSON.parse(localStorage.getItem("username"));
     }
 

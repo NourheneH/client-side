@@ -17,8 +17,17 @@ user: User;
     }
 
     login() {
-        this.loginService.login(this.user);
-        // console.log(t)
+        console.log('isloggedin');
+        this.loginService.login(this.user).then(
+            data => {
+                if(data) {
+                    console.log('here', data);
+                     this.router.navigate(['home']);
+                }
+            }
+        );
+        
+       
     }
 
 
