@@ -25,8 +25,8 @@ export class LoginService{
       .subscribe(
         // We're assuming the response will be an object
         // with the JWT on an id_token key
-        data =>{ localStorage.setItem('id_token', data.id_token),
-                console.log('isloggedin');   
+        data =>{ localStorage.setItem('id_token', data.token),
+                console.log('isloggedin', data);   
         },
         error => console.log(error)
         
