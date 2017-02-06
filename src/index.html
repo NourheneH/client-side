@@ -1,13 +1,33 @@
 <!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Proxym-IT</title>
-  <base href="/">
+<html class="no-js" lang="en">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title> Proxym-IT </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="styleheet" href="bower_components/bootstrap/dist/css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- Place favicon.ico in the root directory -->
+   <link rel="stylesheet" href="../../assets/css/vendor.css">
+    <link rel="stylesheet" href="../../assets/css/app.css"> 
+    <!-- Theme initialization -->
+    <script>
+        var themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
+            {};
+        var themeName = themeSettings.themeName || '';
+        if (themeName) {
+            document.write('<link rel="stylesheet" id="theme-style" href="../../assets/css/app-' + themeName + '.css">');
+        }
+        else {
+            document.write('<link rel="stylesheet" id="theme-style" href="../../assets/css/app.css">');
+        }
+    </script>
+  <base href="/">
+
+ 
 </head>
 <body>
   <app-root>Loading...</app-root>

@@ -13,9 +13,11 @@ import {LoginService} from './services/login.service';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import {routing} from './app.routes';
-import { SitemenuComponent } from './sitemenu/sitemenu.component';
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FooterComponent } from './footer/footer.component';
+import { DashbordComponent } from './dashbord/dashbord.component';
 
 //import {ValidationService} from './register/validators';
 
@@ -24,8 +26,10 @@ import { SitemenuComponent } from './sitemenu/sitemenu.component';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent,
-    SitemenuComponent,
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent,
+    DashbordComponent,
   ],
   imports: [
     BrowserModule,
