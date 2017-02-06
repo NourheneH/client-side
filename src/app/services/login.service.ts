@@ -5,18 +5,21 @@ import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map'
 import { User } from '../models/users';
+import {UserService} from './user.service';
 import { tokenNotExpired } from 'angular2-jwt/angular2-jwt.js';
 
 @Injectable()
 export class LoginService{ 
 
 //public token: String;
+ //isloggedin : Boolean ;
             constructor (
                 private router: Router,
-                private http: Http
+                private http: Http,
+               // private isloggedin : Boolean
             ){
                 var user = User;
-  //              this.token ;
+               
             }
 
                 login(credentials) {
@@ -26,12 +29,21 @@ export class LoginService{
         // We're assuming the response will be an object
         // with the JWT on an id_token key
         data =>{ localStorage.setItem('id_token', data.token),
-                console.log('isloggedin', data);   
+                    localStorage.setItem('username', credentials.email);
+                
+                console.log('isloggedin', data);  
+              //   this.isloggedin = true; 
         },
         error => console.log(error)
         
       );
+     
   }
+    getEmail(email){
+             let  user =   this.http.get('http://localhost:3000/users'+email)
+                        .map(_body => _body.json());
+                        console.log('here',user);
+                 };
 /*
             login(newUser): Observable<boolean> {
                 console.log('service started');
@@ -105,13 +117,16 @@ console.log('service login');
     
         
     }
-    
+    */
     logout() {
-      //  this.isLoggedin = false;
+    //  this.isloggedin = ;
+        this.router.navigate(['']);
         window.localStorage.clear();
     }
 
-
+ loggedIn() {
+    return tokenNotExpired();
+  }
 
 
    /* getByid(id){

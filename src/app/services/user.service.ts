@@ -32,6 +32,7 @@ export class UserService{
 
             return Promise.resolve(user);
     }
+   
      /* addUser(newUser){
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');

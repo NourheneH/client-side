@@ -15,6 +15,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import {routing} from './app.routes';
+import { SitemenuComponent } from './sitemenu/sitemenu.component';
 
 //import {ValidationService} from './register/validators';
 
@@ -24,6 +25,7 @@ import {routing} from './app.routes';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
+    SitemenuComponent,
   ],
   imports: [
     BrowserModule,

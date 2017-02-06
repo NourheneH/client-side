@@ -29,6 +29,9 @@ user: User;
         */
         this.loginService.login(this.user);
         console.log('here');
+        this.router.navigate(['home']);
+        
+    
     }
 
 /**data => {
