@@ -17,7 +17,7 @@ import {routing} from './app.routes';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
-import { DashbordComponent } from './dashbord/dashbord.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 //import {ValidationService} from './register/validators';
 
@@ -29,7 +29,7 @@ import { DashbordComponent } from './dashbord/dashbord.component';
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
-    DashbordComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import './operators';
 @Component({
 selector:"app-root",
 moduleId: 'module.id',
-providers : [HeaderComponent]
+providers : [HeaderComponent],
  templateUrl: './app.component.html',
 //template:`<router-outlet></router-outlet>`
 })

@@ -1,4 +1,3 @@
-<app-header  class="header"></app-header>
-<sidebar></sidebar>
+<app-header class="header" *ngIf="isLoggedin"></app-header>
+
 <router-outlet></router-outlet>
-<footer></footer>
