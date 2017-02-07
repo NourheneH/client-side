@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Response, Headers, RequestOptions } from '@angular/http';
+import {Base_Url} from '../common/setting';
 import {User} from '../models/users';
 import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
@@ -7,19 +8,19 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class UserService{
 
-    private BASE_URL:string = 'http://localhost:3000/user/';
+   
     constructor(private http: Http){
         console.log("User service start ...")
     }
 
   getUsers(): Promise<any>{
-        let users=  this.http.get('http://localhost:3000/users')
+        let users=  this.http.get(Base_Url+'/users')
             .map(_body => _body.json());
             return Promise.resolve(users);
     }
 /*
   getRoles(): Promise<any>{
-        let roles = this.http.get('http://localhost:3000/roles')
+        let roles = this.http.get(Base_Url+'/roles')
             .map(_body => _body.json());
              
         return    Promise.resolve(roles);
@@ -27,7 +28,7 @@ export class UserService{
    addUser(newUser) : Promise<any>{
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        let user =  this.http.post('http://localhost:3000/user', JSON.stringify(newUser), {headers: headers})
+        let user =  this.http.post(Base_Url+'/user', JSON.stringify(newUser), {headers: headers})
             .map(_body => _body.json());
 
             return Promise.resolve(user);
@@ -36,7 +37,7 @@ export class UserService{
      /* addUser(newUser){
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/user', JSON.stringify(newUser), {headers: headers})
+        return this.http.post(Base_Url+'/user', JSON.stringify(newUser), {headers: headers})
             .map(res => res.json());
     }
 
