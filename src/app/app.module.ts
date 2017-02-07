@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { AuthGuard } from './common/auth.guard';
@@ -8,12 +8,12 @@ import { AuthGuard } from './common/auth.guard';
 
 
 
-import {UserService} from './services/user.service';
-import {LoginService} from './services/login.service';
+import { UserService } from './services/user.service';
+import { LoginService } from './services/login.service';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import {routing} from './app.routes';
+import { routing } from './app.routes';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -34,15 +34,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule ,
+    ReactiveFormsModule,
     HttpModule,
     routing
   ],
   providers: [UserService,
     LoginService,
     AuthGuard,
-  //  AUTH_PROVIDERS
-     ],
+    //  AUTH_PROVIDERS
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
