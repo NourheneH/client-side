@@ -33,13 +33,9 @@ export class LoginService {
     }
 
     loggedIn() {
-        console.log('test', tokenNotExpired());
+      //  console.log('test', tokenNotExpired());
         return tokenNotExpired();
     }
-    getEmail(email) {
-        let user = this.http.get(Base_Url+'/users' + email)
-            .map(_body => _body.json());
-        console.log('here', user);
-    };
+    
 
 }

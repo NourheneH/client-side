@@ -20,14 +20,14 @@ export class AppComponent implements OnInit {
         // this.firstname = localStorage.getItem("username");
 
 
-        console.log('service test', this.isLoggedin, loginService);
+       //console.log('service test', this.isLoggedin, loginService);
 
     }
 
     ngOnInit() {
         this.isLoggedin = this.loginService.loggedIn();
         //location.reload();
-        console.log('service test 2', this.isLoggedin, this.loginService);
+        //console.log('service test 2', this.isLoggedin, this.loginService);
     }
 
 }

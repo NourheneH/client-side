@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UsersComponent } from './users/users.component';
 
 //import {ValidationService} from './register/validators';
 
@@ -30,6 +31,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SidebarComponent,
     FooterComponent,
     DashboardComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

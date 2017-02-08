@@ -10,14 +10,22 @@ export class UserService{
 
    
     constructor(private http: Http){
-        console.log("User service start ...")
+      //  console.log("User service start ...")
     }
 
   getUsers(): Promise<any>{
+      console.log("service getUsers start");
         let users=  this.http.get(Base_Url+'/users')
             .map(_body => _body.json());
             return Promise.resolve(users);
     }
+/*    getUsers(){
+        return this.http.get(Base_Url+'/users')
+            .map(res =>{ res.json()
+                    console.log(res);    
+            });
+            
+    } */
 /*
   getRoles(): Promise<any>{
         let roles = this.http.get(Base_Url+'/roles')
@@ -33,22 +41,10 @@ export class UserService{
 
             return Promise.resolve(user);
     }
-   
-     /* addUser(newUser){
-        var headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-        return this.http.post(Base_Url+'/user', JSON.stringify(newUser), {headers: headers})
-            .map(res => res.json());
-    }
-
-    /* JSON.parse(JSON.stringify(newUser)) */
-    /*
-    	public addUser(body:User){
-		let options = new RequestOptions({
-        	headers: new Headers({ 'Content-Type': 'application/json;charset=UTF-8' }) 
-        });
-		return this.http.post(`${this.BASE_URL}`,JSON.stringify(body), options)
-			.map((res:Response) => res.json())
-			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-	}*/
+    getByEmail(email): Promise<any> {
+       let user = this.http.get(Base_Url+'/users/' + email)
+            .map(_body => _body.json());
+            return Promise.resolve(user);
+                 
+    };
 }
