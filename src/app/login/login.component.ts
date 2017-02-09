@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { User } from '../models/users';
 import { LoginService } from '../services/login.service';
 
+
 @Component({
     selector: 'login',
     moduleId: 'module.id',
@@ -12,8 +13,11 @@ import { LoginService } from '../services/login.service';
 export class LoginComponent {
 
     user: User;
+    message : boolean;
+   
     constructor(public router: Router, public loginService: LoginService) {
         this.user = new User();
+     
     }
 
     login() {
@@ -22,16 +26,18 @@ export class LoginComponent {
             // We're assuming the response will be an object
             // with the JWT on an id_token key
             data => {
-                localStorage.setItem('id_token', data.token),
-                localStorage.setItem('username', this.user.email);
-
-            },
-            error => console.log(error)
-
-        );
-        this.router.navigate(['dashboard']);
-
-
-    }
+                 if (data.token) {
+                     localStorage.setItem('id_token', data.token);
+                     localStorage.setItem('username', this.user.email);
+                      this.router.navigate(['dashboard']);
+                 }
+                 else {
+                     this.router.navigate(['']);
+                     this.message = true;
+                 }
+                 });
+                
+                
+            }
 
 }

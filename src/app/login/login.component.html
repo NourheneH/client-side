@@ -7,6 +7,7 @@
             </header>
             <div class="auth-content">
                 <p class="text-xs-center">LOGIN TO CONTINUE</p>
+                <div *ngIf="message" class="alert alert-danger" > username or password incorrect</div>
                 <form id="login-form" method="GET" role="form" (ngSubmit)="login(user)" novalidate="">
                     <div class="form-group"> <label for="email">Username</label> <input [(ngModel)]="user.email" type="email" class="form-control underlined"
                             name="email" id="email" placeholder="Your email address" required> </div>
