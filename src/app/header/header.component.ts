@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit{
     private lastname : string;
     user : User[];
     constructor(public router: Router, public loginService: LoginService, public userService: UserService) {
-        this.isLoggedin = loginService.loggedIn();
+       // this.isLoggedin = loginService.loggedIn();
         this.email = localStorage.getItem("username");
         this.firstname = localStorage.getItem("firstname");
         this.lastname= localStorage.getItem("lastname");
@@ -36,14 +36,15 @@ export class HeaderComponent implements OnInit{
                    localStorage.setItem('firstname',this.user.firstname);
                    localStorage.setItem('lastname',this.user.lastname);
                 })
-       
-                   
-                
             }
         )
     }
+     isAuthenticated () {
+    return this.loginService.loggedIn();
+};
     ngOnInit(){
         this.getCurrentUser();
+        this.isAuthenticated();
     }
     logout() {
         this.loginService.logout();

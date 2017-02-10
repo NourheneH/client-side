@@ -11,8 +11,11 @@ export class UsersComponent implements OnInit {
       
 users : any;
   constructor(private userService: UserService) {
+    this.users=new Array<User>();
   }
-
+ngOnInit() {
+    this.getAllUser();
+  }
    getAllUser(){
       this.userService.getUsers().then(
         function(res){
@@ -23,9 +26,7 @@ users : any;
         }
       )
   }
-  ngOnInit() {
-    this.getAllUser();
-  }
+  
 
 
 

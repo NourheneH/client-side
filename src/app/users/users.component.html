@@ -1,8 +1,6 @@
 <article class="content dashboard-page">
   <p>hello!!</p>
- <ul>
-    <li ngFor="let user of users">
-        <span>{{user}}</span>
-    </li>
-</ul>
+ <div>
+    <div *ngFor="let user of users">{{user.email}}</div>
+ </div>
 </article>

@@ -17,16 +17,20 @@ import './operators';
 export class AppComponent implements OnInit {
     private isLoggedin: boolean;
     constructor(public loginService: LoginService) {
-        this.isLoggedin = loginService.loggedIn();
+       // this.isLoggedin = loginService.loggedIn();
         // this.firstname = localStorage.getItem("username");
 
 
        //console.log('service test', this.isLoggedin, loginService);
 
     }
+    isAuthenticated () {
+    return this.loginService.loggedIn();
+};
 
     ngOnInit() {
-        this.isLoggedin = this.loginService.loggedIn();
+        this.isAuthenticated ();
+       // this.isLoggedin = this.loginService.loggedIn();
         //location.reload();
         //console.log('service test 2', this.isLoggedin, this.loginService);
     }

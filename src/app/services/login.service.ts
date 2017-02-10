@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs';
@@ -14,6 +14,7 @@ export class LoginService {
     constructor(
         private router: Router,
         private http: Http,
+        private zone : NgZone
         
     ) {
         var user = User;
@@ -28,8 +29,11 @@ export class LoginService {
     }
 
     logout() {
-        this.router.navigate(['']);
+        this.zone.run(() =>{
+            this.router.navigate(['']);
         window.localStorage.clear();
+        } );
+        
     }
 
     loggedIn() {
