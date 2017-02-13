@@ -1,6 +1,17 @@
+<!--<article class="content dashboard-page">
+  <p>hello!!</p>
+<ul *ngIf="users">
+  <li *ngFor = 'let user of users | values:"key": true'>
+    <span>{{user.email}}</span>
+  </li>
+ </ul> 
+</article>
+-->
 <article class="content dashboard-page">
   <p>hello!!</p>
- <div>
-    <div *ngFor="let user of users">{{user.email}}</div>
- </div>
+<ul *ngIf="users">
+  <li *ngFor = "let user of users">
+    <span>{{user.email}}</span>
+  </li>
+ </ul> 
 </article>

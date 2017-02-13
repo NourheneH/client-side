@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from './login/login.component';
+//import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent} from './footer/footer.component';
 import { SidebarComponent} from './sidebar/sidebar.component';
 import { LoginService } from './services/login.service';
+
 
 import './operators';
 

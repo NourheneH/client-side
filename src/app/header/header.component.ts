@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone} from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { UserService} from '../services/user.service';
@@ -18,14 +18,18 @@ export class HeaderComponent implements OnInit{
     private firstname : string;
     private lastname : string;
     user : User[];
-    constructor(public router: Router, public loginService: LoginService, public userService: UserService) {
+    constructor(public router: Router, public loginService: LoginService, public userService: UserService, public zone: NgZone) {
        // this.isLoggedin = loginService.loggedIn();
         this.email = localStorage.getItem("username");
-        this.firstname = localStorage.getItem("firstname");
+        this.zone.run(()=>{
+            this.firstname = localStorage.getItem("firstname");
         this.lastname= localStorage.getItem("lastname");
     
+        })
+        
     }
     getCurrentUser(){
+        if(this.isAuthenticated){
         this.userService.getByEmail(this.email).then(
             function(res){
                 
@@ -38,13 +42,19 @@ export class HeaderComponent implements OnInit{
                 })
             }
         )
+        }
     }
      isAuthenticated () {
     return this.loginService.loggedIn();
 };
     ngOnInit(){
+        this.zone.run(()=>{
+                     this.isAuthenticated();
         this.getCurrentUser();
-        this.isAuthenticated();
+        });
+
+       
+        
     }
     logout() {
         this.loginService.logout();
