@@ -9,9 +9,9 @@
 -->
 <article class="content dashboard-page">
   <p>hello!!</p>
-<ul *ngIf="users">
-  <li *ngFor = "let user of users">
-    <span>{{user.email}}</span>
-  </li>
- </ul> 
+<div *ngIf="users">
+  <div *ngFor = "let user of users">
+    <a href = "" role="button">{{user.firstname}} {{user.lastname}}</a>
+  </div>
+ </div> 
 </article>
