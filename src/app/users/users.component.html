@@ -1,17 +1,13 @@
-<!--<article class="content dashboard-page">
-  <p>hello!!</p>
-<ul *ngIf="users">
-  <li *ngFor = 'let user of users | values:"key": true'>
-    <span>{{user.email}}</span>
-  </li>
- </ul> 
-</article>
--->
 <article class="content dashboard-page">
-  <p>hello!!</p>
-<div *ngIf="users">
-  <div *ngFor = "let user of users">
-    <a href = "" role="button">{{user.firstname}} {{user.lastname}}</a>
+  <div *ngIf="users">
+        <div *ngFor = "let user of users">
+    <div class="col-md-6">
+        <div class="row" >
+            <img src="http://b.dryicons.com/images/icon_sets/shine_icon_set/png/256x256/black_female_business_user.png" alt="" width="50" />
+        </div>
+        <div class="row"><a href="/profile" role="button" id="id_user">{{user.firstname}} {{user.lastname}}</a></div>
+        
+    </div>
+        </div>
   </div>
- </div> 
 </article>

@@ -47,4 +47,11 @@ export class UserService{
             return Promise.resolve(user);
                  
     };
+
+getUserById(id): Promise<any>{
+    let user = this.http.get(Base_Url+'/users/'+id)
+        .map(_body => _body.json());
+            return Promise.resolve(user);
+
+}
 }

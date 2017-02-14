@@ -46,6 +46,8 @@ users : User[];
             res.subscribe(function(r){
               console.log('here',r.data);
               scope.users = r.data; 
+  
+
             });
         }
       )
