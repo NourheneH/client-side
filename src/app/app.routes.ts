@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent} from './users/users.component';
-import { ProfileComponent} from './profile/profile.component';
+import { UserDetailsComponent} from './user-details/user-details.component';
 //import { AboutComponent } from './about/about.component';
 
 // Route Configuration
@@ -16,7 +16,7 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
     { path: 'users', component: UsersComponent},
   { path: '', component: LoginComponent },
-  {path: 'profile', component: ProfileComponent}
+  {path: 'user/:id', component: UserDetailsComponent}
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

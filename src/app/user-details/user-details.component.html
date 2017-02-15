@@ -1,7 +1,8 @@
 <article class="content dashboard-page">
-<p>
-  profile works!
-</p>
+<div *ngIf="user">
+<h2>{{user.firstname}} {{user.lastname}} details ! </h2>
+<div><label>email : </label>{{user.email}}</div>
+</div>
 <div class="text-xs-center">
  <a href="/users" class="btn btn-secondary rounded btn-sm"> <i class="fa fa-arrow-left"></i> Back to list  </a>
  </div>

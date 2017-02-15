@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormArray, FormControl, FormBuilder, Validators } from '@angular/forms';
+import {Router} from '@angular/router';
 import { UserService } from '../services/user.service';
 import { User } from '../models/users';
 import { matchingPassword } from './validators';
@@ -14,13 +15,12 @@ import { matchingPassword } from './validators';
 export class RegisterComponent implements OnInit {
 
     users: FormGroup;
-    userList: User[];
+   // userList: User[];
     // userss : User;
     //firstnam : String;
 
-    constructor(public fb: FormBuilder, private userService: UserService) {
+    constructor(public router: Router, public fb: FormBuilder, private userService: UserService) {
         this.userService = userService;
-
     }
 
 
@@ -39,16 +39,17 @@ export class RegisterComponent implements OnInit {
 
     addUser() {
         var newUser = this.users.value;
-
+        
 
         this.userService.addUser(newUser).then(function (res) {
             res.subscribe(newUser => {
-
+               // newUser.userId = newUser.data._id;
                 console.log('here', newUser);
+                
 
             });
         })
-
+            this.router.navigate(['']);
     }
 
 

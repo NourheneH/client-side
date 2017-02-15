@@ -19,7 +19,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
-import { ProfileComponent } from './profile/profile.component';
+import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 //import {ValidationService} from './register/validators';
@@ -34,7 +34,7 @@ import { ProfileComponent } from './profile/profile.component';
     FooterComponent,
     DashboardComponent,
     UsersComponent,
-    ProfileComponent,
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
