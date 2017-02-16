@@ -2,13 +2,12 @@
   <div *ngIf="users">
         <div *ngFor = "let user of users" >
     <div class="col-md-6">
-        <div class="row">
-          <span role="button" [routerLink]="['/user', user.userId]" >{{user.firstname}} {{user.lastname}}</span>
-          </div>
         <div class="row" >
-            <img src="http://b.dryicons.com/images/icon_sets/shine_icon_set/png/256x256/black_female_business_user.png" alt="" width="50" />
+            <img class="card-user avatar border-gray" src="assets/faces/3.jpg" alt="" />
         </div>
-     
+     <div class="row">
+          <span role="button" [routerLink]="['/user', user.userId]" >{{user.firstname}} {{user.lastname}}</span>
+     </div>
           </div>
         </div>
 
