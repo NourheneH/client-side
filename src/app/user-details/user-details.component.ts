@@ -9,34 +9,34 @@ import {UserService} from '../services/user.service';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnInit {
-  @Input() user : User;
-  navigated = false; // true if navigated here
  
-
+  user : User;
+  id : string;
+ 
+   userId : any;
   constructor(public route: ActivatedRoute, public userService : UserService) {
-
+    
   }
-getProfile() {
-  
-   this.route.params.forEach((params: Params) => {
-      if (params['userId'] !== undefined) {
-        let userId = +params['userId'];
-        this.navigated = true;
-        this.userService.getUserById(userId).then(
+
+   ngOnInit() {
+   
+  this.route.params.subscribe(params => {
+      this.id = params ['id'];
+    this.getProfile();
+   })
+  }
+getProfile(){
+ 
+   console.log('this id getProfile',this.id);
+   let self = this;
+  this.userService.getUserById(this.id).then(
         function(res){
-          res.subscribe(function(r){
-            console.log('this the profile of'+userId, r)
-             this.user =r.data[0];
-            // this.router.navigate(['profile']);
+          res.subscribe(function(result){
+           // console.log('this the profile of '+JSON.stringify(result,null," "));
+             self.user =result.data;
           })
         }
   ) 
-      } 
-    });
-  
 }
-  ngOnInit() {
-    this.getProfile();
-  }
 
 }

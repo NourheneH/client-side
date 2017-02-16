@@ -42,14 +42,14 @@ export class UserService{
             return Promise.resolve(user);
     }
     getByEmail(email): Promise<any> {
-       let user = this.http.get(Base_Url+'/users/' + email)
+       let user = this.http.get(Base_Url+'/users/email/' + email)
             .map(_body => _body.json());
             return Promise.resolve(user);
                  
     };
 
 getUserById(id): Promise<any>{
-    let user = this.http.get(Base_Url+'/users/'+id)
+    let user = this.http.get(Base_Url+'/users/id/'+id)
         .map(_body => _body.json());
             return Promise.resolve(user);
 
