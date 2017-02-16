@@ -1,22 +1,17 @@
 <article class="content dashboard-page">
   <div *ngIf="users">
-        <div *ngFor = "let user of users" (click)="onSelect(user)" [class.selected]="user === selectUser" >
+        <div *ngFor = "let user of users" >
     <div class="col-md-6">
         <div class="row">
-          <span >{{user.firstname}} {{user.lastname}}</span>
+          <span role="button" [routerLink]="['/user', user.userId]" >{{user.firstname}} {{user.lastname}}</span>
           </div>
         <div class="row" >
             <img src="http://b.dryicons.com/images/icon_sets/shine_icon_set/png/256x256/black_female_business_user.png" alt="" width="50" />
         </div>
-      <!--  <div class="row">
-          <a href="/profile" role="button" id="user._id">{{user.firstname}} {{user.lastname}}</a>
-          </div>
-        -->
+     
           </div>
         </div>
-<div *ngIf="selectUser">
-         <span role="button" (click)="goToDetail()">View Detail</span>
-         </div>
+
 
   </div>
 </article>
