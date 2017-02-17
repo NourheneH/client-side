@@ -1,16 +1,16 @@
 <article class="content dashboard-page">
-  <div *ngIf="users">
-        <div  *ngFor = "let user of users" >
-    <div class="col-md-6">
-        <div class="row" >
-            <img class="roundedImage" src="assets/faces/3.jpg" alt="" />
-        </div>
-     <div class="row">
-          <span role="button" [routerLink]="['/user', user.userId]" >{{user.firstname}} {{user.lastname}}</span>
-     </div>
-          </div>
+    <div *ngIf="users">
+        <div *ngFor="let user of users">
+            <div class="col-md-6">
+                <div class="row">
+                    <img class="roundedImage" src="assets/faces/3.jpg" alt="" />
+                </div>
+                <div class="row">
+                    <span role="button" [routerLink]="['/user', user.userId]">{{user.firstname}} {{user.lastname}}</span>
+                </div>
+            </div>
         </div>
 
 
-  </div>
+    </div>
 </article>
