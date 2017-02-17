@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 //import {ValidationService} from './register/validators';
@@ -35,6 +36,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
     DashboardComponent,
     UsersComponent,
     UserDetailsComponent,
+    UserProfileComponent,
   ],
   imports: [
     BrowserModule,

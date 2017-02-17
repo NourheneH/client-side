@@ -1,9 +1,9 @@
 <article class="content dashboard-page">
   <div *ngIf="users">
-        <div *ngFor = "let user of users" >
+        <div  *ngFor = "let user of users" >
     <div class="col-md-6">
         <div class="row" >
-            <img class="card-user avatar border-gray" src="assets/faces/3.jpg" alt="" />
+            <img class="roundedImage" src="assets/faces/3.jpg" alt="" />
         </div>
      <div class="row">
           <span role="button" [routerLink]="['/user', user.userId]" >{{user.firstname}} {{user.lastname}}</span>

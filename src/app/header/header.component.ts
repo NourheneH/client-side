@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit{
     private email: string;
     private firstname : string;
     private lastname : string;
+    private userId : string;
     user : User[];
     constructor(public router: Router, public loginService: LoginService, public userService: UserService, public zone: NgZone) {
        // this.isLoggedin = loginService.loggedIn();
@@ -26,7 +27,7 @@ export class HeaderComponent implements OnInit{
         this.lastname= localStorage.getItem("lastname");
     
         })
-        
+        this.userId = localStorage.getItem("userId");
     }
     getCurrentUser(){
         if(this.isAuthenticated){
@@ -37,6 +38,7 @@ export class HeaderComponent implements OnInit{
                    // console.log('hhhh')
                     console.log('im this person', r);
                     this.user = r.data[0];
+                    localStorage.setItem('userId', this.user.userId);
                    localStorage.setItem('firstname',this.user.firstname);
                    localStorage.setItem('lastname',this.user.lastname);
                 })
@@ -52,9 +54,6 @@ export class HeaderComponent implements OnInit{
                      this.isAuthenticated();
         this.getCurrentUser();
         });
-
-       
-        
     }
     logout() {
         this.loginService.logout();
