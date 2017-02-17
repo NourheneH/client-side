@@ -24,10 +24,7 @@ export class LoginService {
 
     login(credentials) {
       return   this.http.post(Base_Url+'/authenticate', credentials)
-            .map(res => {
-                
-            res.json()}
-            )
+            .map(res =>  res.json())
            
     }
 
