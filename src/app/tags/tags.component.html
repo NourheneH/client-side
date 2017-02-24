@@ -1,18 +1,17 @@
 <article class="content dashboard-page">
-  <div *ngIf="tags">
+  <div class = "col-md-6" *ngIf="tags">
     <div *ngFor="let tag of tags">
       <div class="col-md-6">
         <div class="row">
           <!--   <span role="button" [routerLink]="['/user', user.userId]">{{user.firstname}} {{user.lastname}}</span> -->
-          <h4 class="title">{{tag.name}}<br />
+          <h4 class="titleTag">{{tag.name}}<br />
           </h4>
           <p class="description text-center">
             {{tag.description}}
           </p>
         </div>
-
-      </div>
+       </div>
     </div>
-    <div><button [routerLink]="['/tag']" type ="submit">Propose an other tag</button></div>
-  </div>
+   </div>
+  <div><button [routerLink]="['/tag']" type ="submit" class ="btn btn-primary">Propose an other tag</button></div>
 </article>

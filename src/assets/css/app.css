@@ -29,8 +29,9 @@ body {
 
 
 div#form {
-	margin: 0 auto 0 auto;
-	width:730px;
+    margin: 0 auto 0 auto;
+    width: 80%;
+    padding: 30px 20px;
 }
 
 
@@ -1869,7 +1870,9 @@ span a {
   @media (max-width: 767px) {
     .title-description {
       display: none; } }
-
+.titleTag {
+  color: #85CE36; 
+}
 .subtitle {
   font-size: 1.2rem;
   margin: 0;
