@@ -1,6 +1,6 @@
 <article class="content dashboard-page">
   <form novalidate (ngSubmit)="addTag()" [formGroup]="tags">
-                        <div class="form-group">
+                        <div id ="tag" class="profileSection">
                            <div class="form-group">
                                 <label for="name">
                                 <span>Name</span>
@@ -14,19 +14,16 @@
                             <div class="form-group">
                                 <label for="description">
                                 <span>Description</span>
-                                <input type="text" class="form-control underlined" name ="description" placeholder="enter a description" formControlName="description">
+                                <textarea type="text" class="form-control underlined" name ="description" formControlName="description"></textarea>
                             </label>
                                 <div class="has-error" *ngIf="tags.get('description').touched && tags.get('description').hasError('required')">
                                     You should enter a description !!
                                 </div>
                             </div>
                             <br>
-                           
-                            <br>
-
-                            <div>
-                                <button type="submit" class="btn btn-block btn-primary">Save</button>
+                           <div class="pull-right">
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </div>
-                    </form>
+   </form>
 </article>

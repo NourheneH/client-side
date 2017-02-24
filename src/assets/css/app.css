@@ -33,7 +33,11 @@ div#form {
     width: 80%;
     padding: 30px 20px;
 }
-
+div#tag {
+  margin: 0 auto 0 auto;
+    width: 80%;
+    padding: 40px 20px;
+}
 
 .main-wrapper {
   width: 100%;
