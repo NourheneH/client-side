@@ -10,6 +10,10 @@ import { AuthGuard } from './common/auth.guard';
 
 import { UserService } from './services/user.service';
 import { LoginService } from './services/login.service';
+import { TagService} from './services/tag.service';
+
+
+
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -21,6 +25,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TagsComponent } from './tags/tags.component';
 
 
 //import {ValidationService} from './register/validators';
@@ -37,6 +42,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     UsersComponent,
     UserDetailsComponent,
     UserProfileComponent,
+    TagsComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +53,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
   ],
   providers: [UserService,
     LoginService,
+    TagService,
     AuthGuard,
     //  AUTH_PROVIDERS
   ],
