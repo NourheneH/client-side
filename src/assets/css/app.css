@@ -27,6 +27,13 @@ body {
   color: #4f5f6f;
   overflow-x: hidden; }
 
+
+div#form {
+	margin: 0 auto 0 auto;
+	width:730px;
+}
+
+
 .main-wrapper {
   width: 100%;
   position: absolute;
@@ -1534,6 +1541,11 @@ label,
     border-radius:50px;
     width:90px;
     height:90px;
+}
+.profileSection{
+  border: solid 3px #85CE36;
+  background color: #9ba8b5;
+  
 }
 .logo {
   display: inline-block;

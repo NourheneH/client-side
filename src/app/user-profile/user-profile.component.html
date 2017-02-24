@@ -6,37 +6,92 @@
         <div class="content" *ngIf="user">
             <div class="author">
                 <img class="avatar border-gray" src="assets/faces/3.jpg" alt="..." />
-         <h4 class="title">{{user.firstname}} {{user.lastname}}<br />
-                      <small>{{user.email}}</small>
-             </h4> 
-            </div>
-             
-            <form>
-                <div class="form-group">
-                    <label> 
-                        <span>Name </span>
-                        <div class="row">
-                       <div class="col-sm-6"> <input type="text" class="form-control underlined">   </div>
-                       <div class="col-sm-6"> <input type="text" class="form-control underlined"> </div>
-                        </div>
-                         </label>
-                </div>
-                 <div class="form-group">
-                    <label> 
-                        <span>Password </span>
-                        <div class="row">
-                       <div class="col-sm-6"> <input type="password" class="form-control underlined"> </div>
-                       <div class="col-sm-6"> <input type="password" class="form-control underlined"> </div>
-                        </div>
-                         </label>
-                </div>
-                  </form>
+             </div>
 
-            <div class="form-group"> <label class="control-label">Email</label> <input type="password" class="form-control underlined"> </div>
+                      <div id="form" class="profileSection">
+                          
+                        <form role="form" (ngSubmit)="save()" [formGroup]="form" >
+                             <div class="form-group">
+                            <div class="form-group">
+                                <label for="name">
+                                <span>Name</span>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                <input type="text" class="form-control underlined" placeholder="" [(ngModel)]="user.firstname" formControlName="firstname"> 
+                                    </div>
+                                    <div class="col-sm-6">
+                                <input type="text" class="form-control underlined" placeholder="" [(ngModel)]="user.lastname"  formControlName="lastname">
+                                    </div>
+                                </div>
+                            </label>
+                                <div class="has-error" *ngIf="form.get('firstname').touched && form.get('firstname').hasError('required')">
+                                    You should enter your firstname !!
+                                </div>
+                                <div class="has-error" *ngIf="form.get('firstname').touched && form.get('firstname').hasError('minlength')">
+                                    Minimum 2 charactères
+                                </div>
+                                <div class="has-error" *ngIf="form.get('lastname').touched && form.get('lastname').hasError('required')">
+                                    You should enter your lastname !!
+                                </div>
+                                <div class="has-error" *ngIf="form.get('firstname').touched && form.get('firstname').hasError('minlength')">
+                                    Minimum 2 charactères
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="email">
+                                <span>Email</span>
+                                <input type="text" class="form-control underlined" name ="email" placeholder="" [(ngModel)]="user.email" formControlName="email">
+                            </label>
+                                <div class="has-error" *ngIf="form.get('email').touched && form.get('email').hasError('required')">
+                                    You should enter your email !!
+                                </div>
+                                <div class="has-error" *ngIf="form.get('email').touched && form.get('email').hasError('pattern')">
+                                    Your adress is not correct !!
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="password">
+                                 <span>Password</span>
+                                 <div class="row">
+                                    <div class="col-sm-6">
+                                     <input type="password" class="form-control underlined" name="password" [(ngModel)]="user.password"  formControlName="password"
+                                            placeholder=""> 
+                                    </div>
+                                    <div class="col-sm-6"> 
+                                        <input type="password" class="form-control underlined" name="confirm" [(ngModel)]="user.confirm" formControlName="confirm"
+                                            placeholder=""> 
+                                    </div>
+                                </div>
+                             </label>
+                                <div class="has-error" *ngIf="form.get('password').touched && form.get('password').hasError('required')">
+                                    type your password
+                                </div>
+                                <div class="has-error" *ngIf="form.get('confirm').touched && form.get('confirm').hasError('required')">
+                                    Re-type your password
+                                </div>
+                                <div class="has-error" *ngIf="form.get('password','confirm').hasError('matchingPassword')">
+                                    password mismatch
+                                </div>
+                            </div>
+                            <br>
+
+                            <div>
+                                <button type="submit" class="btn btn-primary">save</button>
+
+                            </div>
+                        </div>
+                        </form>
+                        
+              
+                </div>
+          
+
+
 
         </div>
-        <hr>
 
-        <div class="form-group"> <button type="submit" class="btn btn-block btn-primary">update</button> </div>
+
     </div>
 </article>
