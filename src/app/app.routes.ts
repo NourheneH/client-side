@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersComponent} from './users/users.component';
 import { UserDetailsComponent} from './user-details/user-details.component';
 import { UserProfileComponent} from './user-profile/user-profile.component';
+import { TagsComponent} from './tags/tags.component';
 //import { AboutComponent } from './about/about.component';
 
 // Route Configuration
@@ -18,7 +19,8 @@ export const routes: Routes = [
     { path: 'users', component: UsersComponent},
   { path: '', component: LoginComponent },
   {path: 'user/:id', component: UserDetailsComponent},
-  {path:'profile/:id', component: UserProfileComponent }
+  {path:'profile/:id', component: UserProfileComponent },
+  {path: 'tags', component: TagsComponent},
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);
