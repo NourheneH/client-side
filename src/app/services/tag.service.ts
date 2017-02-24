@@ -28,4 +28,13 @@ export class TagService {
         return Promise.resolve(tag);
 
     }
+
+     addUser(newTag): Promise<any> {
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        let tag = this.http.post(Base_Url + '/tag', JSON.stringify(newTag), { headers: headers })
+            .map(_body => _body.json());
+
+        return Promise.resolve(tag);
+    }
 }

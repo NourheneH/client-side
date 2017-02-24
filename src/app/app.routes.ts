@@ -10,6 +10,7 @@ import { UsersComponent} from './users/users.component';
 import { UserDetailsComponent} from './user-details/user-details.component';
 import { UserProfileComponent} from './user-profile/user-profile.component';
 import { TagsComponent} from './tags/tags.component';
+import {AddTagsComponent} from './add-tags/add-tags.component';
 //import { AboutComponent } from './about/about.component';
 
 // Route Configuration
@@ -21,6 +22,7 @@ export const routes: Routes = [
   {path: 'user/:id', component: UserDetailsComponent},
   {path:'profile/:id', component: UserProfileComponent },
   {path: 'tags', component: TagsComponent},
+  {path: 'tag', component: AddTagsComponent},
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

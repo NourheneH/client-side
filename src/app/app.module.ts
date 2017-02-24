@@ -26,6 +26,7 @@ import { UsersComponent } from './users/users.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TagsComponent } from './tags/tags.component';
+import { AddTagsComponent } from './add-tags/add-tags.component';
 
 
 //import {ValidationService} from './register/validators';
@@ -43,6 +44,7 @@ import { TagsComponent } from './tags/tags.component';
     UserDetailsComponent,
     UserProfileComponent,
     TagsComponent,
+    AddTagsComponent,
   ],
   imports: [
     BrowserModule,
