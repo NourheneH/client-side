@@ -11,6 +11,8 @@ import { UserDetailsComponent} from './user-details/user-details.component';
 import { UserProfileComponent} from './user-profile/user-profile.component';
 import { TagsComponent} from './tags/tags.component';
 import {AddTagsComponent} from './add-tags/add-tags.component';
+import {TopicsComponent} from './topics/topics.component';
+import {AddTopicComponent} from './add-topic/add-topic.component';
 //import { AboutComponent } from './about/about.component';
 
 // Route Configuration
@@ -23,6 +25,8 @@ export const routes: Routes = [
   {path:'profile/:id', component: UserProfileComponent },
   {path: 'tags', component: TagsComponent},
   {path: 'tag', component: AddTagsComponent},
+  {path: 'topics', component: TopicsComponent},
+  {path: 'topic', component: AddTopicComponent},
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

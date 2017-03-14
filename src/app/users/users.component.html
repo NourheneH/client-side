@@ -1,6 +1,6 @@
 <article class="content dashboard-page">
     <div *ngIf="users">
-        <div *ngFor="let user of users">
+        <div *ngFor="let user of (users | filterUser)">
             <div class="col-md-6">
                 <div class="row">
                     <img class="roundedImage" src="assets/faces/3.jpg" alt="" />

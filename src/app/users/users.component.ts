@@ -15,6 +15,7 @@ export class UsersComponent implements OnInit {
       
 users : User[];
 selectUser : User;
+//userId: string;
   constructor(public router: Router, private userService: UserService) {
     this.users;
   }

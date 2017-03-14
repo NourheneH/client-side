@@ -1,0 +1,28 @@
+<article class="content dashboard-page">
+  <form novalidate (ngSubmit)="addTopic()" [formGroup]="topics">
+                        <div id ="tag" class="profileSection">
+                          <div class="form-inline">
+                            <label>Choose a tag:</label>
+                          <div class="form-group">
+                            <select class="form-control">
+                              <option></option>
+                            </select>
+                          </div>
+                          </div>
+                           <div class="form-group">
+                                <label for="title">
+                                <span>title</span>
+                                <input type="text" class="form-control underlined" name ="title" placeholder="enter a title" formControlName="title">
+                            </label>
+                                <div class="has-error" *ngIf="topics.get('title').touched && topics.get('title').hasError('required')">
+                                    You should enter a title !!
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                           <div class="pull-right">
+                                <button type="submit" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+   </form>
+</article>

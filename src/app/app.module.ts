@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AuthGuard } from './common/auth.guard';
 //import {AUTH_PROVIDERS} from 'angular2-jwt/angular2-jwt.js';
 
+import {FilterUser} from './pipe/filter_user';
 
 
 import { UserService } from './services/user.service';
@@ -27,12 +28,17 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TagsComponent } from './tags/tags.component';
 import { AddTagsComponent } from './add-tags/add-tags.component';
+import { TopicsComponent } from './topics/topics.component';
+import { AddTopicComponent } from './add-topic/add-topic.component';
+import { TechnicalSolutionsComponent } from './technical-solutions/technical-solutions.component';
+
 
 
 //import {ValidationService} from './register/validators';
 
 @NgModule({
   declarations: [
+    FilterUser,
     AppComponent,
     RegisterComponent,
     LoginComponent,
@@ -45,6 +51,10 @@ import { AddTagsComponent } from './add-tags/add-tags.component';
     UserProfileComponent,
     TagsComponent,
     AddTagsComponent,
+    TopicsComponent,
+    AddTopicComponent,
+    TechnicalSolutionsComponent,
+    
   ],
   imports: [
     BrowserModule,
