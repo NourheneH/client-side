@@ -1,14 +1,17 @@
 <article class="content dashboard-page">
   <div class = "col-md-6" *ngIf="topics">
-    <div *ngFor="let topic of topics">
-      <div class="col-md-6">
-        <div class="row">
-          <!--   <span role="button" [routerLink]="['/user', user.userId]">{{user.firstname}} {{user.lastname}}</span> -->
-          <h4 class="titleTag">{{topic.title}}<br />
-          </h4>
-        </div>
-       </div>
+       <div  class= "row" >
+    <div class="col-md-3" *ngFor="let topic of topics">
+      <div class="title-stat">
+      <h3>{{topic.title}}</h3>
+      <p>{{topic.description}}</p>
     </div>
-   </div>
-<div><button [routerLink]="['/topic']" type ="submit" class ="btn btn-primary">Propose a topic</button></div>
+    </div>
+    </div>
+    </div>
+<button [routerLink]="['/topic']" type ="submit" class ="btn btn-primary">Propose a topic</button>
 </article>
+
+
+
+<!--class="col-lg-3 col-md-3 col-sm-6 col-xs-12" -->
