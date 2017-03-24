@@ -1,6 +1,14 @@
 <article class="content dashboard-page">
-<p>
-  topics works!
-</p>
+  <div class = "col-md-6" *ngIf="topics">
+    <div *ngFor="let topic of topics">
+      <div class="col-md-6">
+        <div class="row">
+          <!--   <span role="button" [routerLink]="['/user', user.userId]">{{user.firstname}} {{user.lastname}}</span> -->
+          <h4 class="titleTag">{{topic.title}}<br />
+          </h4>
+        </div>
+       </div>
+    </div>
+   </div>
 <div><button [routerLink]="['/topic']" type ="submit" class ="btn btn-primary">Propose a topic</button></div>
 </article>

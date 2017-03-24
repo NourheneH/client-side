@@ -1,11 +1,40 @@
+<script type="text/javascript">
+$(".js-example-basic-multiple").select2();
+</script>
+
+
 <article class="content dashboard-page">
   <form novalidate (ngSubmit)="addTopic()" [formGroup]="topics">
                         <div id ="tag" class="profileSection">
+                        <!--  <div class="form-inline">
+                              <div class="multiselect">
+                              <select id="chkveg" multiple="multiple">
+
+    <option value="cheese">Cheese</option>
+    <option value="tomatoes">Tomatoes</option>
+    <option value="mozarella">Mozzarella</option>
+    <option value="mushrooms">Mushrooms</option>
+    <option value="pepperoni">Pepperoni</option>
+    <option value="onions">Onions</option>
+
+</select>
+                          </div>
+                          </div> -->
+                         <!-- <div class="form-inline">
+                            <label>Choose a tag :</label>
+                            <div class="form-group">
+                                <select class="js-example-basic-multiple" multiple="multiple">
+                                    <option>choose</option>
+                                <option value="name" *ngFor="let tag of tags">{{tag.name}}</option>
+                              </select>
+                            </div>
+                          </div> -->
+                
                           <div class="form-inline">
                             <label>Choose a tag:</label>
-                          <div class="form-group">
-                            <select class="form-control">
-                              <option></option>
+                        <div class="form-group">
+                            <select class="form-control" multiple formControlName="tags">
+                              <option value="{{tag.tagId}}" *ngFor="let tag of tags">{{tag.name}}</option>
                             </select>
                           </div>
                           </div>
@@ -19,6 +48,15 @@
                                 </div>
                             </div>
                             <br>
+                            <div class="form-group">
+                                <label for="description">
+                                <span>Description</span>
+                                <input type="text" class="form-control underlined" name ="description" placeholder="your text" formControlName="description">
+                            </label>
+                                <div class="has-error" *ngIf="topics.get('description').touched && topics.get('description').hasError('required')">
+                                    You should enter a description !!
+                                </div>
+                            </div>
                             <br>
                            <div class="pull-right">
                                 <button type="submit" class="btn btn-primary">Save</button>

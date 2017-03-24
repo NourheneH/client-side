@@ -12,6 +12,7 @@ import {FilterUser} from './pipe/filter_user';
 import { UserService } from './services/user.service';
 import { LoginService } from './services/login.service';
 import { TagService} from './services/tag.service';
+import {TopicService} from './services/topic.service';
 
 
 
@@ -66,6 +67,7 @@ import { TechnicalSolutionsComponent } from './technical-solutions/technical-sol
   providers: [UserService,
     LoginService,
     TagService,
+    TopicService,
     AuthGuard,
     //  AUTH_PROVIDERS
   ],
