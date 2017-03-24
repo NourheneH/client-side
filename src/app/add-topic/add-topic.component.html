@@ -5,7 +5,7 @@ $(".js-example-basic-multiple").select2();
 
 <article class="content dashboard-page">
   <form novalidate (ngSubmit)="addTopic()" [formGroup]="topics">
-                        <div id ="tag" class="profileSection">
+                        <div id ="tag" class="profileSection col-md-12">
                         <!--  <div class="form-inline">
                               <div class="multiselect">
                               <select id="chkveg" multiple="multiple">
@@ -38,7 +38,7 @@ $(".js-example-basic-multiple").select2();
                             </select>
                           </div>
                           </div>
-                           <div class="form-group">
+                           <div class="form-group col-md-12 ">
                                 <label for="title">
                                 <span>title</span>
                                 <input type="text" class="form-control underlined" name ="title" placeholder="enter a title" formControlName="title">
@@ -51,7 +51,7 @@ $(".js-example-basic-multiple").select2();
                             <div class="form-group">
                                 <label for="description">
                                 <span>Description</span>
-                                <input type="text" class="form-control underlined" name ="description" placeholder="your text" formControlName="description">
+                                <textarea type="text" class="form-control underlined" name ="description" placeholder="your text" formControlName="description"></textarea>
                             </label>
                                 <div class="has-error" *ngIf="topics.get('description').touched && topics.get('description').hasError('required')">
                                     You should enter a description !!
