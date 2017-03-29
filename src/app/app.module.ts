@@ -8,6 +8,7 @@ import { AuthGuard } from './common/auth.guard';
 
 import {FilterUser} from './pipe/filter_user';
 import {TruncatePipe} from './pipe/filter_description';
+import{ArraySortPipe} from './pipe/filter_date';
 
 
 import { UserService } from './services/user.service';
@@ -42,6 +43,7 @@ import { TechnicalSolutionsComponent } from './technical-solutions/technical-sol
   declarations: [
     FilterUser,
     TruncatePipe,
+    ArraySortPipe,
     AppComponent,
     RegisterComponent,
     LoginComponent,

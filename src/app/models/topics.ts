@@ -7,5 +7,6 @@ export class Topic {
     user : User;
     description : string;
    tags : Array<Tag> ;
+   created_at : Date ;
     
 }

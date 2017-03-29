@@ -54,10 +54,10 @@
                             </li>
                              
                             <li class="item" *ngIf="topics">
-                                <div class="item-row" *ngFor="let topic of topics.data">
+                                <div class="item-row" *ngFor="let topic of topics.data | arraySort:'topic.created_at'">
                             
                                     <div class="item-col fixed item-col-img md">
-                                        <a> {{topic.title}} </a>
+                                        <a> {{topic.title | truncate: 20}} </a>
                                         
                                     </div>
                                     <div class="item-col fixed pull-left item-col-title">
@@ -76,7 +76,7 @@
                                     </div>
                                     <div class="item-col item-col-date">
 
-                                        <div class=""> 21 SEP 10:45 </div>
+                                        <div class=""> {{topic.created_at | date:'medium'}} </div>
                                     </div>
                                     <!--<div class="item-col fixed item-col-actions-dropdown">
                                         <div class="item-actions-dropdown">
