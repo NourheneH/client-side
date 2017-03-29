@@ -27,7 +27,7 @@ tags : Tag [];
   ngOnInit() {
     this.topics = this.fb.group({
       title : ['', Validators.required],
-      tags : ['', Validators.required],
+    tags : ['', Validators.required],
       description : ['', Validators.required],
     })
  this.getNamesOfTags();
@@ -35,14 +35,16 @@ tags : Tag [];
 
  getNamesOfTags(){
     var scope = this;
-     this.tagService.getTags().then(
-       function(res){
-         res.subscribe(function(r){
-           //console.log('here tags to choose', r.data);
-           scope.tags = r.data;
-         })
-       }
-     )
+     this.tagService.getTags()
+       .subscribe( 
+         tags => {scope.tags = tags,
+           console.log("tags", tags)
+         //Bind to view 
+         },
+         err => {
+           //log errors if any 
+           console.log(err);
+         });
  }
  addTopic(){
  var newTopic= this.topics.value;
@@ -50,6 +52,7 @@ tags : Tag [];
     this.topicService.addTopic(newTopic, this.userId).then(function(res){
       res.subscribe(newTopic=> {
         console.log('here new Topic', newTopic);
+      
       });
     })
    // console.log('success')

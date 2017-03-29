@@ -1,9 +1,11 @@
-//import {Tag} from './tags';
+import {Tag} from './tags';
+import {User} from './users';
 
 export class Topic {
-    topicId : string ; 
+    _id : string ; 
     title : string;
+    user : User;
     description : string;
-    tags : string [];
+   tags : Array<Tag> ;
     
 }

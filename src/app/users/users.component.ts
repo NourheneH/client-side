@@ -22,20 +22,18 @@ selectUser : User;
 
     getAllUser(){
         var scope = this;
-      this.userService.getUsers().then(
-        function(res){
-            res.subscribe(function(r){
-              console.log('here',r.data);
-              scope.users = r.data; 
-  
-
-            });
-        }
-      )
+      this.userService.getUsers()
+      .subscribe(
+        users => {scope.users = users
+      console.log('users:', users)  
+      },
+        err => {
+          console.log(err);
+        });
   }
   goToDetail(){
     
-    this.router.navigate(['user', this.selectUser.userId]);
+    this.router.navigate(['user', this.selectUser._id]);
 
   }
 

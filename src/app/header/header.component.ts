@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit{
     constructor(public router: Router, public loginService: LoginService, public userService: UserService, public zone: NgZone) {
        // this.isLoggedin = loginService.loggedIn();
         this.email = localStorage.getItem("username");
-        this.zone.run(()=>{
+      this.zone.run(()=>{
             this.firstname = localStorage.getItem("firstname");
         this.lastname= localStorage.getItem("lastname");
     
@@ -31,20 +31,19 @@ export class HeaderComponent implements OnInit{
     }
     getCurrentUser(){
         if(this.isAuthenticated){
-        this.userService.getByEmail(this.email).then(
-            function(res){
-                
-                res.subscribe(function(r){
+        this.userService.getByEmail(this.email)
+           .subscribe(function(r){
                    // console.log('hhhh')
                     console.log('im this person', r);
-                    this.user = r.data[0];
-                    localStorage.setItem('userId', this.user.userId);
-                   localStorage.setItem('firstname',this.user.firstname);
-                   localStorage.setItem('lastname',this.user.lastname);
+                    this.user = r;
+                   console.log(this.user.data[0].firstname);
+                 localStorage.setItem('userId', this.user.data[0]._id);
+                 localStorage.setItem('firstname',this.user.data[0].firstname);
+                  localStorage.setItem('lastname',this.user.data[0].lastname);
                 })
             }
-        )
-        }
+   
+        
     }
      isAuthenticated () {
     return this.loginService.loggedIn();

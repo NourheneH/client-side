@@ -16,20 +16,24 @@ export class TagsComponent implements OnInit {
     this.tags
    }
 
-   getAllTags(){
+ getAllTags(){
      var scope = this;
-     this.tagService.getTags().then(
-       function(res){
-         res.subscribe(function(r){
-           console.log('here tags', r.data);
-           scope.tags = r.data;
-         })
+     this.tagService.getTags()
+       .subscribe( 
+         tags => scope.tags = tags,
+                   // console.log("tags", tags)
+         //Bind to view 
+         
+         err => {
+           //log errors if any 
+           console.log(err);
+         });
        }
-     )
-   }
+     
+
 
   ngOnInit() {
-    this.getAllTags();
+   this.getAllTags();
   }
 
 }

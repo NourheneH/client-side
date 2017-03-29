@@ -3,7 +3,11 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Base_Url } from '../common/setting';
 import { User } from '../models/users';
 import { Observable } from 'rxjs/Rx';
+
+ // Import RxJs required methods
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+
 
 @Injectable()
 export class UserService {
@@ -13,7 +17,15 @@ export class UserService {
         //  console.log("User service start ...")
     }
 
-    getUsers(): Promise<any> {
+    getUsers() : Observable<User[]>{
+         // ...using get request
+         return this.http.get(Base_Url + '/users')
+                        // ...and calling .json() on the response to return data
+                         .map((res:Response) => res.json())
+                         //...errors if any
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    }
+ /*   getUsers(): Promise<any> {
         console.log("service getUsers start");
         let users = this.http.get(Base_Url + '/users')
             .map(_body => _body.json());
@@ -40,15 +52,15 @@ export class UserService {
             .map(_body => _body.json());
 
         return Promise.resolve(user);
-    }
-    getByEmail(email): Promise<any> {
-        let user = this.http.get(Base_Url + '/users/email/' + email)
-            .map(_body => _body.json());
-        return Promise.resolve(user);
-
-    };
-
-    getUserById(id): Promise<any> {
+    } 
+    getByEmail(email): Observable<User> {
+      return  this.http.get(Base_Url + '/users/email/' + email)
+             .map((res:Response) => res.json())
+                         //...errors if any
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+                       
+ }; 
+   getUserById(id): Promise<any> {
         let user = this.http.get(Base_Url + '/users/id/' + id)
             .map(_body => _body.json());
         return Promise.resolve(user);
