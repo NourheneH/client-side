@@ -7,6 +7,7 @@ import { AuthGuard } from './common/auth.guard';
 //import {AUTH_PROVIDERS} from 'angular2-jwt/angular2-jwt.js';
 
 import {FilterUser} from './pipe/filter_user';
+import {TruncatePipe} from './pipe/filter_description';
 
 
 import { UserService } from './services/user.service';
@@ -40,6 +41,7 @@ import { TechnicalSolutionsComponent } from './technical-solutions/technical-sol
 @NgModule({
   declarations: [
     FilterUser,
+    TruncatePipe,
     AppComponent,
     RegisterComponent,
     LoginComponent,
