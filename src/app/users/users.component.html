@@ -29,7 +29,13 @@
                                         <div> <span></span> </div>
                                     </div>
                                     <div class="item-col item-col-header item-col-title">
-                                        <div> <span>Name</span> </div>
+                                        <div> <span>Full Name</span> </div>
+                                    </div>
+                                    <div class="item-col item-col-header item-col-title">
+                                        <div> <span>Email</span> </div>
+                                    </div>
+                                    <div class="item-col item-col-header item-col-title">
+                                        <div> <span>Job</span> </div>
                                     </div>
                                 
                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
@@ -39,10 +45,18 @@
                             <li class="item" *ngIf="users">
                                 <div class="item-row" *ngFor="let user of (users.data | filterUser | paginate: {itemsPerPage: 1, currentPage:page, id: '1'})">
                                      <div class="item-col fixed item-col-img md">
-                                     <a> <div class="" src="assets/faces/3.jpg" alt=""></div> </a>
+                                      <div class="" src="assets/faces/3.jpg" alt=""></div> 
                                       </div>
                                     <div class="item-col item-col-author">
                                        <span role="button" [routerLink]="['/user', user._id]">{{user.firstname}} {{user.lastname}}</span>
+                                        
+                                    </div>
+                                    <div class="item-col item-col-author">
+                                       <span >{{user.email}}</span>
+                                        
+                                    </div>
+                                    <div class="item-col item-col-author">
+                                       <span>{{user.job}}</span>
                                         
                                     </div>
                                    
@@ -69,31 +83,7 @@
                             </li>
                               </ul>
                     </div>
-             <!--       <nav class="text-xs-right">
-                        <ul class="pagination">
-                            <li class="page-item"> <a class="page-link" href="">
-				Prev
-			</a> </li>
-                            <li class="page-item active"> <a class="page-link" href="">
-				1
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				2
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				3
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				4
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				5
-			</a> </li>
-                            <li class="page-item"> <a class="page-link" href="">
-				Next
-			</a> </li>
-                        </ul>
-                    </nav>-->
+           
                      <pagination-controls  (pageChange)="page = $event" id="1"
                       maxSize="5"
                       directionLinks="true"
