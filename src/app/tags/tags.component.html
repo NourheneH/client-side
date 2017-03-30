@@ -1,6 +1,6 @@
 <article class="content dashboard-page">
   <div class = "col-md-6" *ngIf="tags">
-    <div *ngFor="let tag of tags.data">
+    <div *ngFor="let tag of tags.data | paginate: {itemsPerPage: 2, currentPage:page, id: '1'}">
       <div class="col-md-6">
         <div class="row">
           <!--   <span role="button" [routerLink]="['/user', user.userId]">{{user.firstname}} {{user.lastname}}</span> -->
@@ -14,4 +14,9 @@
     </div>
    </div>
   <div><button [routerLink]="['/tag']" type ="submit" class ="btn btn-primary">Propose an other tag</button></div>
+ <pagination-controls  (pageChange)="page = $event" id="1"
+                      maxSize="5"
+                      directionLinks="true"
+                      autoHide="true">
+                </pagination-controls>
 </article>

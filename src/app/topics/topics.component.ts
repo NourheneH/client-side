@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-
+import {Ng2PaginationModule} from 'ng2-pagination';
 
 import {UserService} from '../services/user.service';
 import {TopicService} from '../services/topic.service';

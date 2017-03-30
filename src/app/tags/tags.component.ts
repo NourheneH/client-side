@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {Ng2PaginationModule} from 'ng2-pagination';
+
+
 import {TagService} from '../services/tag.service';
 import {Tag} from '../models/tags';
  

@@ -37,7 +37,7 @@
                             </li>
                              
                             <li class="item" *ngIf="users">
-                                <div class="item-row" *ngFor="let user of (users.data | filterUser)">
+                                <div class="item-row" *ngFor="let user of (users.data | filterUser | paginate: {itemsPerPage: 1, currentPage:page, id: '1'})">
                                      <div class="item-col fixed item-col-img md">
                                      <a> <div class="" src="assets/faces/3.jpg" alt=""></div> </a>
                                       </div>
@@ -69,7 +69,7 @@
                             </li>
                               </ul>
                     </div>
-                    <nav class="text-xs-right">
+             <!--       <nav class="text-xs-right">
                         <ul class="pagination">
                             <li class="page-item"> <a class="page-link" href="">
 				Prev
@@ -93,7 +93,12 @@
 				Next
 			</a> </li>
                         </ul>
-                    </nav>
+                    </nav>-->
+                     <pagination-controls  (pageChange)="page = $event" id="1"
+                      maxSize="5"
+                      directionLinks="true"
+                      autoHide="true">
+                </pagination-controls>
                 </article>
 
 
