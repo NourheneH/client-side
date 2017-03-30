@@ -1,6 +1,6 @@
 <article class="content dashboard-page">
   <div class = "col-md-6" *ngIf="tags">
-    <div *ngFor="let tag of tags.data | paginate: {itemsPerPage: 2, currentPage:page, id: '1'}">
+    <div *ngFor="let tag of tags.data | arraySort:'tag.created_at' | paginate: {itemsPerPage: 2, currentPage:page, id: '1'}">
       <div class="col-md-6">
         <div class="row">
           <!--   <span role="button" [routerLink]="['/user', user.userId]">{{user.firstname}} {{user.lastname}}</span> -->
@@ -9,6 +9,7 @@
           <p class="description text-center">
             {{tag.description}}
           </p>
+           <a> {{tag.created_at  | date:'medium'}}</a>
         </div>
        </div>
     </div>
