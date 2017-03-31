@@ -38,6 +38,7 @@ import { TechnicalSolutionsComponent } from './technical-solutions/technical-sol
 
 
 
+
 //import {ValidationService} from './register/validators';
 
 @NgModule({
@@ -60,6 +61,7 @@ import { TechnicalSolutionsComponent } from './technical-solutions/technical-sol
     TopicsComponent,
     AddTopicComponent,
     TechnicalSolutionsComponent,
+
     
   ],
   imports: [

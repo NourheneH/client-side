@@ -13,6 +13,7 @@ import { TagsComponent} from './tags/tags.component';
 import {AddTagsComponent} from './add-tags/add-tags.component';
 import {TopicsComponent} from './topics/topics.component';
 import {AddTopicComponent} from './add-topic/add-topic.component';
+// import {TopicDetailsComponent} from './topic-details/topic-details.component';
 //import { AboutComponent } from './about/about.component';
 
 // Route Configuration
@@ -27,6 +28,7 @@ export const routes: Routes = [
   {path: 'tag', component: AddTagsComponent},
   {path: 'topics', component: TopicsComponent},
   {path: 'topic', component: AddTopicComponent},
+  // {path: 'topic/:id', component: TopicDetailsComponent},
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes);

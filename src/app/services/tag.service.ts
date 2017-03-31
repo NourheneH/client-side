@@ -25,12 +25,12 @@ export class TagService {
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
         
   }
-   /*   getTagById(id): Promise<any> {
+      getTagById(id): Promise<any> {
         let tag = this.http.get(Base_Url + '/tags/id/' + id)
             .map(_body => _body.json());
         return Promise.resolve(tag);
 
-    }*/
+    }
 
      addUser(newTag): Promise<any> {
         var headers = new Headers();
