@@ -301,7 +301,32 @@ div#tag {
   border-radius: 0; }
   .card-plain .image {
     border-radius: 4px; }
-
+.centered {
+  position: relative;
+}
+.topic-header{
+  padding: 5px 0 0;
+    line-height: 30px;
+    background: #ececec;
+    position: relative;
+    border-bottom: 1px solid #c7c7c7;
+    box-shadow: 0 4px 8px rgba(0,0,0,.15);
+    margin-bottom: 25px
+}
+.topic-header-container {
+      padding: 0;
+    background: #9b9b9b;
+}
+.topic-inline{
+  float:left;
+}
+.topic-title{
+    color: #78bd2e;
+    font-size: 1.5rem;
+    font-weight: 100;
+    line-height: 35px;
+    /*text-align: center;*/
+}
 .error-card {
   width: 410px;
   min-height: 330px;

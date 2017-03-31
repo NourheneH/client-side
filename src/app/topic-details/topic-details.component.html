@@ -1,4 +1,4 @@
-<article class="content dashboard-page">
+<!--<article class="content dashboard-page">
     <div class="card card-user">
                             <div class="image">
                                 <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
@@ -27,4 +27,252 @@
                          <div class="text-xs-center">
  <a href="/topics" class="btn btn-secondary rounded btn-sm"> <i class="fa fa-arrow-left"></i> Back to list  </a>
  </div>
+</article>-->
+<!--<article class="content dashboard-page">
+ <div *ngIf="topic">
+   
+    <header class="topic-header">
+      <div class="topic-inline"> <h1 class="topic-title"> {{topic.title}}</h1> <a>{{topic.user.firstname}} {{topic.user.lastname}}</a>
+      </div>
+     
+      
+     
+  
+      <small>{{topic.created_at | date:'medium'}}</small>
+      <a class="topic-header-container" *ngFor="let tag of topic.tags">{{tag.name}}</a>
+  
+     
+    </header>
+   
+  </div>
+
+</article>-->
+
+<article class="content dashboard-page">
+  
+  <div class="course-details">
+        	<div class="container" *ngIf="topic" >
+            	<h2>{{topic.title}}</h2>
+	            <div class="course-details-main">
+                    <div class="course-img">
+                        <img src="assets\images\courses\courses-img8.jpg" alt="">
+                    </div>
+                    <div class="course-info" *ngFor="let tag of topic.tags">
+                         <div class="item-col item-col-category no-overflow" *ngFor="let tag of topic.tags"  >
+                                        <a class="btn btn-primary btn-sm rounded-s">{{tag.name}}</a>
+                                    </div> 
+                       
+                    </div>
+                    <div class="row">
+                    	<div class="col-sm-6">
+                        	<div class="course-instructorInfo">
+                            	<div class="info-slide"><i class="fa fa-user-secret"></i>{{topic.user.firstname}} {{topic.user.lastname}}</div>
+                                <div class="info-slide"><i class="fa fa-calendar"></i>{{topic.created_at | date:'medium'}} </div>
+                            </div>
+                        </div>
+                        <!--<div class="col-sm-6">
+                        	<div class="btn-row">
+                            	<div class="price"><span>Price: </span>$45</div>
+                                
+                                <a href="cart.htm" class="btn"><i class="fa fa-cart-plus"></i>Add to Cart</a>
+                            </div>
+                        </div>-->
+                    </div>
+                    
+                </div>
+                <div class="info">
+                	<h4>{{topic.description}}</h4>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
+                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. </p>
+                </div>
+                <!--<div class="instructors">
+                	<h4>Meet The Instructors</h4>
+                    <div class="row">
+                    	<div class="col-sm-4">
+                        	<div class="instructors-box">
+                            	<div class="img"><img src="assets\images\user-img\img6.jpg" alt=""></div>
+                                <div class="name">variations passages</div>
+                                <div class="designation">reasonable</div>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
+                                <div class="link"><a href="instructor-profile.htm">More Info</a></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                        	<div class="instructors-box">
+                            	<div class="img"><img src="assets\images\user-img\img7.jpg" alt=""></div>
+                                <div class="name">variations passages</div>
+                                <div class="designation">reasonable</div>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
+                                <div class="link"><a href="instructor-profile.htm">More Info</a></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                        	<div class="instructors-box">
+                            	<div class="img"><img src="assets\images\user-img\img8.jpg" alt=""></div>
+                                <div class="name">variations passages</div>
+                                <div class="designation">reasonable</div>
+                                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or </p>
+                                <div class="link"><a href="instructor-profile.htm">More Info</a></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>-->
+                <div class="syllabus">
+                	<h4>Chapters</h4>
+                    <div class="syllabus-box">
+                    	<div class="syllabus-title">1st lesson</div>
+                        <div class="syllabus-view first">
+                        	<div class="main-point active">Lorem Ipsum is simply dummy text of the printing and typesetting</div>
+                            <div class="point-list">
+                            	<ul>
+                                	<li><a href="course-lessons.htm">vedio : Lorem ipsum dolor sit amet. <span class="hover-text">Watch Video<i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="course-lessons.htm">Document : semper dolor quis lectus facilisis laoreet. <span class="hover-text">Let's Go<i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="quiz-intro.htm">Quizzes : auctor quam quis commodo feugiat. <span class="hover-text">upgrade now<i class="fa fa-angle-right"></i></span></a></li>
+                                    <li class="no-link">There are many variations of passages of Lorem Ipsum available, </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="syllabus-box">
+                    	<div class="syllabus-title">2st lesson</div>
+                        <div class="syllabus-view">
+                        	<div class="main-point">It is a long established fact that a reader will be distracted by the</div>
+                            <div class="point-list">
+                            	<ul>
+                                    <li><a href="course-lessons.htm">Lessons : auctor quam quis commodo feugiat. <span class="hover-text">understand now<i class="fa fa-angle-right"></i></span></a></li>                                	
+                                	<li><a href="course-lessons.htm">vedio : Lorem ipsum dolor sit amet. <span class="hover-text">Watch Video<i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="course-lessons.htm">Document : semper dolor quis lectus facilisis laoreet. <span class="hover-text">Let's Go<i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="quiz-intro.htm">Quizzes : auctor quam quis commodo feugiat. <span class="hover-text">upgrade now<i class="fa fa-angle-right"></i></span></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="syllabus-box">
+                    	<div class="syllabus-title">3st lesson</div>
+                        <div class="syllabus-view">
+                        	<div class="main-point">readable content of a page when looking at its layout. The point of </div>
+                            <div class="point-list">
+                            	<ul>
+                                	<li><a href="course-lessons.htm">Lessons : auctor quam quis commodo feugiat. <span class="hover-text">understand now<i class="fa fa-angle-right"></i></span></a></li>                                	
+                                	<li><a href="course-lessons.htm">vedio : Lorem ipsum dolor sit amet. <span class="hover-text">Watch Video<i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="course-lessons.htm">Document : semper dolor quis lectus facilisis laoreet. <span class="hover-text">Let's Go<i class="fa fa-angle-right"></i></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="syllabus-box">
+                    	<div class="syllabus-title">4st lesson</div>
+                        <div class="syllabus-view">
+                        	<div class="main-point">using Lorem Ipsum is that it has a more-or-less normal distribution </div>
+                            <div class="point-list">
+                            	<ul>
+                                	<li><a href="course-lessons.htm">Lessons : auctor quam quis commodo feugiat. <span class="hover-text">understand now<i class="fa fa-angle-right"></i></span></a></li>                                	
+                                	<li><a href="course-lessons.htm">vedio : Lorem ipsum dolor sit amet. <span class="hover-text">Watch Video<i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="quiz-intro.htm">Quizzes : auctor quam quis commodo feugiat. <span class="hover-text">upgrade now<i class="fa fa-angle-right"></i></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="syllabus-box">
+                    	<div class="syllabus-title">5st lesson</div>
+                        <div class="syllabus-view">
+                        	<div class="main-point">of letters, as opposed to using 'Content here, content here', </div>
+                            <div class="point-list">
+                            	<ul>
+                                	<li><a href="course-lessons.htm">Lessons : auctor quam quis commodo feugiat. <span class="hover-text">understand now<i class="fa fa-angle-right"></i></span></a></li>                                	
+                                	<li><a href="course-lessons.htm">Document : semper dolor quis lectus facilisis laoreet. <span class="hover-text">Let's Go<i class="fa fa-angle-right"></i></span></a></li>
+                                    <li><a href="quiz-intro.htm">Quizzes : auctor quam quis commodo feugiat. <span class="hover-text">upgrade now<i class="fa fa-angle-right"></i></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!--<div class="reviews">
+                	<h4>Reviews</h4>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="rating-info">
+                                <label>Detailed Rating</label>
+                                <div class="rating-slide">
+                                    <span>Stars 5</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width:50%"></div>
+                                    </div>
+                                    <em>10</em>
+                                </div>
+                                <div class="rating-slide">
+                                    <span>Stars 4</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width:40%"></div>
+                                    </div>
+                                    <em>8</em>
+                                </div>
+                                <div class="rating-slide">
+                                    <span>Stars 3</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width:30%"></div>
+                                    </div>
+                                    <em>6</em>
+                                </div>
+                                <div class="rating-slide">
+                                    <span>Stars 2</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width:35%"></div>
+                                    </div>
+                                    <em>7</em>
+                                </div>
+                                <div class="rating-slide">
+                                    <span>Stars 1</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width:0"></div>
+                                    </div>
+                                    <em>0</em>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                        	<label>Average Rating</label>
+                            <div class="rating-box">
+                            	<div class="rating">4.3</div>
+                                <div class="rating-star">
+                                	<div class="fill" style="width:86%"></div>
+                                </div>
+                                <span>31 Ratings</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews-view">
+                    	<h4>Reviews List</h4>
+                    	<div class="reviews-slide">
+                        	<div class="img"><img src="assets\images\user-img\student-img1.png" alt=""></div>
+                            <div class="rating-star">
+                            	<div class="fill" style="width:82%"></div>
+                            </div>
+                            <span>5 Day ago</span>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you </p>
+                        </div>
+                        <div class="reviews-slide">
+                        	<div class="img"><img src="assets\images\user-img\student-img1.png" alt=""></div>
+                            <div class="rating-star">
+                            	<div class="fill" style="width:69%"></div>
+                            </div>
+                            <span>5 Month ago</span>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you </p>
+                        </div>
+                        <div class="reviews-slide">
+                        	<div class="img"><img src="assets\images\user-img\student-img1.png" alt=""></div>
+                            <div class="rating-star">
+                            	<div class="fill" style="width:70%"></div>
+                            </div>
+                            <span>2.5 Years ago</span>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you </p>
+                        </div>
+                    </div>
+                </div-->
+            </div>
+        </div>
+   
 </article>
