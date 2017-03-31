@@ -30,7 +30,12 @@ getTopics(): Observable<Topic[]>{
         
   }
 
+ getTopicById(id): Promise<any> {
+        let topic = this.http.get(Base_Url + '/topics/' + id)
+            .map(_body => _body.json());
+        return Promise.resolve(topic);
 
+    }
 
 
 

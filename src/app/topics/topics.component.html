@@ -59,7 +59,7 @@
                                     <div class="item-col fixed pull-left item-col-title">
                                          <div class="form-group">
                                             <a class="">
-                                                <h4 class="item-title"> {{topic.title}} </h4>
+                                                <h4 class="item-title" role="button" [routerLink]="['/topic', topic._id]"> {{topic.title}} </h4>
                                             </a>
                                             <div class="item-col item-col-category no-overflow" *ngFor="let tag of topic.tags"  >
                                         <a class="btn btn-primary btn-sm rounded-s">{{tag.name}}</a>

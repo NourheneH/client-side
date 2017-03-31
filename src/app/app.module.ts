@@ -35,6 +35,7 @@ import { AddTagsComponent } from './add-tags/add-tags.component';
 import { TopicsComponent } from './topics/topics.component';
 import { AddTopicComponent } from './add-topic/add-topic.component';
 import { TechnicalSolutionsComponent } from './technical-solutions/technical-solutions.component';
+import { TopicDetailsComponent } from './topic-details/topic-details.component';
 
 
 
@@ -61,6 +62,7 @@ import { TechnicalSolutionsComponent } from './technical-solutions/technical-sol
     TopicsComponent,
     AddTopicComponent,
     TechnicalSolutionsComponent,
+    TopicDetailsComponent,
 
     
   ],
