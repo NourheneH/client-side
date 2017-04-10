@@ -1,0 +1,61 @@
+<article class="content dashboard-page">
+    <div *ngIf="user">
+    <div class="card card-user" >
+                            <div class="image">
+                                <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+                            </div>
+                            <div class="content" >
+                                <div class="author">
+                                    
+                                    <img class="avatar border-gray" src="assets/faces/3.jpg" alt="..."/>
+
+                                      <h4 class="title">{{user.firstname}} {{user.lastname}}<br />
+                                         <small>{{user.email}}</small> <br />
+                                         <small>{{user.job}}</small>
+                                         </h4>
+                                
+                                </div>
+                               
+                            </div>
+                           
+                       
+                         </div>
+                           <div class="row">
+                                <div class="col-xl-4" *ngFor="let topic of user.topics">
+                                <div class="card card-primary" >
+                               <div class="card-header"> 
+                               <div class="header-block">
+                                    <p class="title" role="button" [routerLink]="['/topic', topic._id]">   {{topic.title}} </p>
+                               </div>
+                                   </div>
+                               <div  class="card-block">
+                                  <p> {{topic.description}} </p>
+
+                                  </div>
+                                  <div class="card-footer"> <i class="fa fa-calendar">  {{topic.created_at | date:'medium'}} </i></div>
+                                </div>
+                                </div>
+                                </div>
+                           <!--<div class="row">
+                       
+                
+                            <div class="col-xl-4">
+                                <div class="card card-success" *ngFor="let topic of user.topics">
+                                    <div class="card-header">
+                                        <div class="header-block">
+                                            <p class="title"> {{topic.title}} </p>
+                                        </div>
+                                    </div>
+                                    <div class="card-block">
+                                        <p>{{topic.description}}</p>
+                                    </div>
+                                    <div class="card-footer"> Card Footer </div>
+                                </div>
+                            </div>
+                       
+                        </div>-->
+    </div>
+                         <div class="text-xs-center">
+ <a [routerLink]="['/users']" class="btn btn-secondary rounded btn-sm"> <i class="fa fa-arrow-left"></i> Back to list  </a>
+ </div>
+</article>

@@ -1,19 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../services/user.service';
-import { User } from '../models/users';
+import {UserService} from '../_shared/services/user.service';
+import { User } from '../_shared/models/users';
 
 
 @Component({
   selector: 'app-dashboard',
-  moduleId: 'module.id',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
 
+
  user: User;
   constructor(public userService: UserService ) { 
-this.user = new User();
+  this.user = new User();
   }
 
   ngOnInit() {
