@@ -15,7 +15,8 @@ export class LoginService {
     constructor(
         private router: Router,
         private http: Http,
-        private zone : NgZone
+        private zone : NgZone,
+
         
     ) {
         var user = User;
@@ -25,7 +26,13 @@ export class LoginService {
 
     login(credentials) {
       return   this.http.post(Base_Url+'/authenticate', credentials)
-             .map(res =>  res.json(),
+             .map(res =>  {res.json()
+             if(res.json().token !=null){
+                 let user = res.json()
+            localStorage.setItem('id_token', user.token);
+            localStorage.setItem('currentuser', JSON.stringify(user.currentuser));
+              }
+            },
              err => console.log(err) ) 
         
     }

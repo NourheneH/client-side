@@ -18,6 +18,7 @@ import { UserService } from './services/user.service';
 import { LoginService } from './services/login.service';
 import { TagService} from './services/tag.service';
 import {TopicService} from './services/topic.service';
+import { SimpleTinyComponent } from './simple-tiny/simple-tiny.component';
 
 
 
@@ -26,10 +27,12 @@ import {TopicService} from './services/topic.service';
  imports : [RouterModule,FormsModule,ReactiveFormsModule],
  declarations : [FilterUser,
     TruncatePipe,
-    ArraySortPipe],
+    ArraySortPipe,
+    SimpleTinyComponent],
  exports : [FilterUser,
     TruncatePipe,
-    ArraySortPipe],
+    ArraySortPipe,
+    SimpleTinyComponent],
   providers: [UserService,
     LoginService,
     TagService,

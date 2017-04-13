@@ -8,20 +8,22 @@ import {Tag} from '../../_shared/models/tags';
 import {TagService} from '../../_shared/services/tag.service';
 import {TopicService} from '../../_shared/services/topic.service';
 
+import {SimpleTinyComponent} from '../../_shared/simple-tiny/simple-tiny.component';
 @Component({
   selector: 'app-add-topic',
   templateUrl: './add-topic.component.html',
-  styleUrls: ['./add-topic.component.css']
+  styleUrls: ['./add-topic.component.css'],
+  providers : [SimpleTinyComponent]
 })
 export class AddTopicComponent implements OnInit {
-tags : Tag [];
+  tags : Tag [];
 
   topics : FormGroup; 
   userId : String;
   //tagId : String;
 
   constructor(public router: Router, public fb : FormBuilder, public tagService: TagService, public topicService: TopicService) { 
-   this.userId = localStorage.getItem("userId");
+   this.userId = JSON.parse(localStorage.getItem('currentuser'))._id;
    }
 
   ngOnInit() {
@@ -49,14 +51,14 @@ tags : Tag [];
  addTopic(){
  var newTopic= this.topics.value;
  //console.log('befor' + JSON.stringify(this.userId, null, " "));
-    this.topicService.addTopic(newTopic, this.userId).then(function(res){
+    this.topicService.addTopic(newTopic, this.userId).then((res) =>{
       res.subscribe(newTopic=> {
         console.log('here new Topic', newTopic);
-      
+        this.router.navigate(['topics']);
       });
     })
    // console.log('success')
-   // this.router.navigate(['topics']);
+   // 
  }
 
 }

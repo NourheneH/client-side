@@ -25,19 +25,14 @@ export class LoginComponent {
         this.loginService.login(this.user).subscribe(
             // We're assuming the response will be an object
             // with the JWT on an id_token key
-            data => {
-                 
-                  if (data.token) {
-                     localStorage.setItem('id_token', data.token);
-                     localStorage.setItem('email', this.user.email);
-                     console.log('username', localStorage.getItem('email'));
-                      //this.router.navigate(['/dashboard']);
-                      this.router.navigateByUrl('/dashboard')
-                 }
-                 else {
-                     this.message = true;
-                 }
-                 });
+            res => {
+                this.router.navigate(['/dashboard']);
+            }, 
+            error => {
+                this.message = true;
+            }
+        
+            );
                 
                // return false;
                 

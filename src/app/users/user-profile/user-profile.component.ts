@@ -20,6 +20,8 @@ export class UserProfileComponent implements OnInit {
   id: string;
 
   constructor(public router: Router, public formBuilder: FormBuilder, public route: ActivatedRoute, public userService: UserService) {
+   
+
     this.form = this.formBuilder.group({
       firstname: ['', [Validators.required, Validators.minLength(2)]],
       lastname: ['', [Validators.required, Validators.minLength(2)]],
@@ -37,6 +39,7 @@ export class UserProfileComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = params['id'];
       this.getOwnerProfile();
+      console.log('id', this.id);
     })
   }
 

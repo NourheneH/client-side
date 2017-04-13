@@ -44,6 +44,7 @@ export const routes: Routes = [
           { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },
           { path: 'users', component: UsersComponent },
           { path: 'user/:id', component: UserDetailsComponent },
+          {path : 'profile/:id', component: UserProfileComponent},
           { path: 'tags', component: TagsComponent},
           { path: 'tag', component: AddTagsComponent},
           { path: 'topics', component: TopicsComponent},
