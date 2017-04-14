@@ -41,15 +41,15 @@ export class RegisterComponent implements OnInit {
         var newUser = this.users.value;
         
 
-        this.userService.addUser(newUser).then(function (res) {
-            res.subscribe(newUser => {
+        this.userService.addUser(newUser)
+        .subscribe(newUser => {
                // newUser.userId = newUser.data._id;
                 console.log('here', newUser);
-                
+               this.router.navigate(['']); 
 
             });
-        })
-            this.router.navigate(['']);
+        
+            
     }
 
 

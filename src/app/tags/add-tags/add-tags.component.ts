@@ -18,7 +18,6 @@ import {SimpleTinyComponent} from '../../_shared/simple-tiny/simple-tiny.compone
 })
 export class AddTagsComponent implements OnInit {
 
-defaultBodyValue: string = "";
 tags : FormGroup;
   constructor(public router: Router, public fb:FormBuilder, private tagService : TagService) { 
     this.tagService = tagService;
@@ -33,13 +32,13 @@ tags : FormGroup;
   }
   addTag(){
     var newTag = this.tags.value;
-    this.tagService.addUser(newTag).then((res) => {
-      res.subscribe(newTag=> {
+    this.tagService.addTag(newTag)
+    .subscribe(newTag=> {
         console.log('here new tag', newTag);
         
         this.router.navigate(['tags']);
       });
-    })
+ //   })
     
   }
 

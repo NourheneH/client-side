@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AuthGuard } from './common/auth.guard';
+
 //import {AUTH_PROVIDERS} from 'angular2-jwt/angular2-jwt.js';
 
 import {FilterUser} from './pipe/filter_user';
@@ -18,6 +19,7 @@ import { UserService } from './services/user.service';
 import { LoginService } from './services/login.service';
 import { TagService} from './services/tag.service';
 import {TopicService} from './services/topic.service';
+
 import { SimpleTinyComponent } from './simple-tiny/simple-tiny.component';
 
 
@@ -37,7 +39,7 @@ import { SimpleTinyComponent } from './simple-tiny/simple-tiny.component';
     LoginService,
     TagService,
     TopicService,
-    AuthGuard,
+    AuthGuard
     //  AUTH_PROVIDERS
   ],
 })

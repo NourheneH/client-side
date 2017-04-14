@@ -23,14 +23,12 @@ export class LoginComponent {
     login() {
 
         this.loginService.login(this.user).subscribe(
-            // We're assuming the response will be an object
-            // with the JWT on an id_token key
             res => {
                 this.router.navigate(['/dashboard']);
             }, 
-            error => {
-                this.message = true;
-            }
+            // err => {
+            //     this.message = true;
+            // }
         
             );
                 

@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
   id: string;
 
   constructor(public router: Router, public formBuilder: FormBuilder, public route: ActivatedRoute, public userService: UserService) {
-   
+
 
     this.form = this.formBuilder.group({
       firstname: ['', [Validators.required, Validators.minLength(2)]],
@@ -33,36 +33,37 @@ export class UserProfileComponent implements OnInit {
 
     )
   }
-  
+
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
       this.getOwnerProfile();
-      console.log('id', this.id);
+      // console.log('id', this.id);
     })
   }
 
   getOwnerProfile() {
 
-    console.log('this id getProfile', this.id);
+    //console.log('this id getProfile', this.id);
     let self = this;
-    this.userService.getUserById(this.id).then(
-      function (res) {
-        res.subscribe(function (result) {
-          // console.log('this the profile of '+JSON.stringify(result,null," "));
-          self.user = result.data;
-        })
+    this.userService.getUserById(this.id)
+      .subscribe(result => {
+        // console.log('this the profile of '+JSON.stringify(result,null," "));
+        self.user = result;
       })
+
   }
 
 
   save() {
-    console.log('befor' + JSON.stringify(this.user, null, " "));
-    this.userService.updateProfile(this.user).subscribe(data => {
-      // console.log('user after update'+JSON.stringify(data,null," "));
-      this.router.navigate(['users'])
-    });
+    // console.log('befor' + JSON.stringify(this.user, null, " "));
+    this.userService.updateProfile(this.user)
+      .subscribe(data => {
+        this.user = data;
+        //  console.log('user after update'+JSON.stringify(data,null," "));
+        // this.router.navigate(['users'])
+      });
   }
 }
-//}
+

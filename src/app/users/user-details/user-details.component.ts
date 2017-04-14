@@ -29,14 +29,12 @@ getProfile(){
  
    console.log('this id getProfile',this.id);
    let self = this;
-  this.userService.getUserById(this.id).then(
-        function(res){
-          res.subscribe(function(result){
+  this.userService.getUserById(this.id)
+  .subscribe( result =>{
            console.log('this details of user '+JSON.stringify(result,null," "));
-             self.user =result.data;
+             self.user =result;
           })
-        }
-  ) 
+
 }
 
 }

@@ -14,7 +14,9 @@ export class TopicDetailsComponent implements OnInit {
   topic: Topic;
   id: string;
 
-  constructor(public route: ActivatedRoute, public topicService: TopicService) { }
+  constructor(public route: ActivatedRoute, public topicService: TopicService) {
+    this.topic
+   }
 
   ngOnInit() {
     this.route.params.subscribe(params =>{
@@ -25,13 +27,12 @@ export class TopicDetailsComponent implements OnInit {
 getTopic() {
    console.log('this id getTopicById',this.id);
    let self = this;
-  this.topicService.getTopicById(this.id).then(
-        function(res){
-          res.subscribe(function(result){
-           console.log('this the profile of '+JSON.stringify(result,null," "));
-             self.topic =result.data;
-          })
-        }
-  ) 
+  this.topicService.getTopicById(this.id)
+  .subscribe( 
+    topic => self.topic = topic,
+    err => console.log(err)
+             // console.log('this the profile of '+JSON.stringify(self.topic,null," "));
+          )
+  
 }
 }

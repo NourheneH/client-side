@@ -12,25 +12,21 @@ import { User } from '../../_shared/models/users';
 })
 export class HeaderComponent implements OnInit {
 
-
     user: User[];
-    constructor(public router: Router, public loginService: LoginService, public userService: UserService, public zone: NgZone) {
 
-
-    }
+    constructor(
+        public router: Router,
+        public loginService: LoginService,
+        public userService: UserService,
+        public zone: NgZone)
+    { }
 
     ngOnInit() {
-
         this.user = JSON.parse(localStorage.getItem('currentuser'));
-
-
     }
+    
     logout() {
         this.loginService.logout();
         this.router.navigate(['auth/login']);
-
     }
-
-
-
 }

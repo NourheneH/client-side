@@ -27,13 +27,13 @@ export class MainComponent implements OnInit {
        //console.log('service test', this.isLoggedin, loginService);
   }
 
-     isAuthenticated () {
-    return this.loginService.loggedIn();
-};
+//      isAuthenticated () {
+//     return this.loginService.loggedIn();
+// };
 
   ngOnInit() {
 
-    this.isAuthenticated ();
+    // this.isAuthenticated ();
        // this.isAdministrateur();
        // this.isLoggedin = this.loginService.loggedIn();
         //location.reload();

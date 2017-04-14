@@ -51,14 +51,11 @@ export class AddTopicComponent implements OnInit {
  addTopic(){
  var newTopic= this.topics.value;
  //console.log('befor' + JSON.stringify(this.userId, null, " "));
-    this.topicService.addTopic(newTopic, this.userId).then((res) =>{
-      res.subscribe(newTopic=> {
+    this.topicService.addTopic(newTopic, this.userId)
+    .subscribe(newTopic=> {
         console.log('here new Topic', newTopic);
         this.router.navigate(['topics']);
       });
-    })
-   // console.log('success')
-   // 
  }
 
 }
