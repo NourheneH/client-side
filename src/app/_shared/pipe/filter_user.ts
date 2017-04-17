@@ -6,7 +6,7 @@ export class FilterUser implements PipeTransform {
     transform(users: User[]) {
    
     return users.filter(user => {
-      return user._id !=  localStorage.getItem("userId");
+      return user._id !=  JSON.parse(localStorage.getItem('currentuser'))._id
     });
   }
    }

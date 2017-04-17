@@ -14,9 +14,10 @@ import {Tag} from '../../_shared/models/tags';
 export class TagsComponent implements OnInit {
 
   tags : Tag [];
-
+  role: boolean;
   constructor(public router : Router, private tagService: TagService) {
     this.tags
+    this.role = JSON.parse(localStorage.getItem('currentuser')).isAdmin
    }
 
  getAllTags(){
@@ -33,9 +34,16 @@ export class TagsComponent implements OnInit {
          });
        }
      
-
+  isAdmin(){
+    if(this.role== true){
+      //  console.log('role current user', this.role)
+      return true
+     
+    }
+  }
 
   ngOnInit() {
+     this.isAdmin();
    this.getAllTags();
   }
 

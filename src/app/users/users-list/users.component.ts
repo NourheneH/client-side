@@ -20,11 +20,11 @@ export class UsersComponent implements OnInit {
       
 users : User[];
 selectUser : User;
-role: string;
+role: boolean;
 //userId: string;
   constructor(public router: Router, private userService: UserService) {
     this.users;
-    this.role = localStorage.getItem('role');
+    this.role = JSON.parse(localStorage.getItem('currentuser')).isAdmin
   }
 
     getAllUser(){
@@ -43,15 +43,24 @@ role: string;
     this.router.navigate(['user', this.selectUser._id]);
 
   } 
-   isAdministrateur(){
-       this.role = "false";
+  isAdmin(){
+    if(this.role== true){
+      //  console.log('role current user', this.role)
+      return true
+     
     }
+  }
+  
 
 ngOnInit() {
+
+    // console.log('here role', this.role)
+    this.isAdmin();
     this.getAllUser();
    // this.gotToProfile();
-   console.log("is admin?", this.role);
-//this.isAdministrateur();
+  // console.log("is admin?", this.role);
+  
+  
   }
  
   
