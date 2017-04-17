@@ -1,4 +1,4 @@
-<article class="content items-list-page">
+<!--<article class="content items-list-page">
                     <div class="title-search-block">
                         <div class="title-block">
                             <div class="row">
@@ -21,12 +21,14 @@
                         <ul class="item-list striped">
                             <li class="item item-list-header hidden-sm-down">
                                 <div class="item-row">
-                                  <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
-						<input type="checkbox" class="checkbox">
-						<span></span>
-					</label> </div>
-                                    <div class="item-col item-col-header fixed item-col-img md">
-                                        <div> <span></span> </div>
+                                  <div class="item-col fixed item-col-check"> 
+                                      <label class="item-check" id="select-all-items">
+						                 <input type="checkbox" class="checkbox">
+						                    <span></span>
+					                  </label> 
+                                  </div>
+                                    <div class="item-col item-col-header fixed item-col-title">
+                                        
                                     </div>
                                     <div class="item-col item-col-header item-col-title">
                                         <div> <span>Full Name</span> </div>
@@ -49,19 +51,19 @@
 							<input type="checkbox" class="checkbox">
 							<span></span>
 						</label> </div>
-                                     <div class="item-col fixed item-col-img md">
+                                     <div class="item-col fixed item-col-title">
                                        <span class="btn btn-oval btn-danger" *ngIf="user.isAdmin">Admin</span>
                                        <span class="btn btn-oval btn-success" *ngIf="!user.isAdmin">User</span>
                                      </div>
-                                    <div class="item-col fixed  item-col-title">
+                                    <div class="item-col item-col-title">
                                        <span role="button" [routerLink]="['/user', user._id]">{{user.firstname}} {{user.lastname}}</span>
                                         
                                     </div>
-                                    <div class="item-col fixed pull-left item-col-title">
+                                    <div class="item-col  pull-left item-col-title">
                                        <span >{{user.email}}</span>
                                         
                                     </div>
-                                    <div class="item-col fixed pull-left item-col-title">
+                                    <div class="item-col pull-left item-col-title">
                                        <span>{{user.job}}</span>
                                         
                                     </div>
@@ -77,8 +79,8 @@
                                             <div class="item-actions-block">
                                                 <ul class="item-actions-list">
                                                     <li>
-                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
-                                                    </li>
+                                                        <a class="remove" href="javascript:void(0)" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                    </li> 
                                                     <li>
                                                         <a class="edit" role="button" [routerLink]="['/user', user._id]"> <i class="fa fa-pencil"></i> </a>
                                                     </li>
@@ -99,4 +101,115 @@
                 </article>
 
 
-<!--class="col-lg-3 col-md-3 col-sm-6 col-xs-12" -->
+class="col-lg-3 col-md-3 col-sm-6 col-xs-12" -->
+
+ <article class="content items-list-page">
+                    <div class="title-search-block">
+                        <div class="title-block">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="title"> Users</h3>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="items-search">
+                            <form class="form-inline">
+                                <div class="input-group"> <input type="text" class="form-control boxed rounded-s" placeholder="Search for..."> <span class="input-group-btn">
+					<button class="btn btn-secondary rounded-s" type="button">
+						<i class="fa fa-search"></i>
+					</button>
+				</span> </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card items">
+                        <ul class="item-list striped">
+                            <li class="item item-list-header hidden-sm-down">
+                                <div class="item-row">
+                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
+						<input type="checkbox" class="checkbox">
+						<span></span>
+					</label> </div>
+                                    <div class="item-col item-col-header fixed item-col-img md">
+                                        <div> <span>Media</span> </div>
+                                    </div>
+                                    <div class="item-col item-col-header item-col-title">
+                                        <div> <span>Name</span> </div>
+                                    </div>
+                                    <div class="item-col item-col-header item-col-category">
+                                        <div class="no-overflow"> <span>Job</span> </div>
+                                    </div>
+                                    <div class="item-col item-col-header item-col-author">
+                                        <div class="no-overflow"> <span>Email</span> </div>
+                                    </div>
+                                     <div class="item-col item-col-header item-col-stats">
+                                        <div class="no-overflow"> <span>Role</span> </div>
+                                    </div>
+                                     <div class="item-col item-col-header fixed item-col-actions-dropdown"> </div>
+                                </div>
+                            </li>
+                            <li class="item" *ngIf="users">
+                                <div class="item-row" *ngFor="let user of (users | filterUser | paginate: {itemsPerPage: 1, currentPage:page, id: '1'})">
+                                    <div class="item-col fixed item-col-check"> <label class="item-check" id="select-all-items">
+							<input type="checkbox" class="checkbox">
+							<span></span>
+						</label> </div>
+                                    <div class="item-col fixed item-col-img md">
+                                        <a>
+                                            <div class="item-img rounded" style="background-image: url(https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg)"></div>
+                                        </a>
+                                    </div>
+                                    <div class="item-col fixed pull-left item-col-title">
+                                        <div class="item-heading">Name</div>
+                                        <div>
+                                            <a>
+                                                <h4 class="item-title" role="button" [routerLink]="['/user', user._id]">{{user.firstname}} {{user.lastname}} </h4>
+                                            </a>
+                                        </div>
+                                    </div>
+                                     <div class="item-col item-col-category no-overflow">
+                                        <div class="item-heading">Job</div>
+                                        <div class="no-overflow"> <a>{{user.job}}</a> </div>
+                                    </div>
+                                    <div class="item-col item-col-author">
+                                        <div class="item-heading">Email</div>
+                                        <div class="no-overflow"> <a>{{user.email}}</a> </div>
+                                    </div>
+                                     <div class="item-col item-col-stats no-overflow">
+                                        <div class="item-heading">Role</div>
+                                        <div class="no-overflow">
+                                            <div class="btn btn-danger-outline" *ngIf="user.isAdmin">Admin</div>
+                                            <div class="btn btn-primary-outline" *ngIf="!user.isAdmin">User</div>
+                                        </div>
+                                    </div>
+                                    <div class="item-col fixed item-col-actions-dropdown">
+                                        <div class="item-actions-dropdown">
+                                            <a class="item-actions-toggle-btn"> <span class="inactive">
+									<i class="fa fa-cog"></i>
+								</span> <span class="active">
+								<i class="fa fa-chevron-circle-right"></i>
+								</span> </a>
+                                            <div class="item-actions-block">
+                                                <ul class="item-actions-list">
+                                                    <li>
+                                                        <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="edit" [routerLink]="['/user', user._id]"> <i class="fa fa-pencil"></i> </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                       
+                        </ul>
+                    </div>
+                  <pagination-controls  (pageChange)="page = $event" id="1"
+                      maxSize="5"
+                      directionLinks="true"
+                      autoHide="true">
+                </pagination-controls>
+                </article>

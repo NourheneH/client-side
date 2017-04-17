@@ -6,6 +6,8 @@ import {Ng2PaginationModule} from 'ng2-pagination';
 import {UserService} from '../../_shared/services/user.service';
 import {User} from '../../_shared/models/users';
 
+
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
