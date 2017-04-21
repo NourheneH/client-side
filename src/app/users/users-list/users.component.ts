@@ -50,7 +50,6 @@ role: boolean;
      
     }
   }
-  
 
 ngOnInit() {
 

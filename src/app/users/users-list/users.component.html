@@ -146,7 +146,13 @@ class="col-lg-3 col-md-3 col-sm-6 col-xs-12" -->
                                      <div class="item-col item-col-header item-col-stats">
                                         <div class="no-overflow"> <span>Role</span> </div>
                                     </div>
-                                     <div class="item-col item-col-header fixed item-col-actions-dropdown" *ngIf="isAdmin()"> </div>
+                                     <div class="item-col item-col-header item-col-stats" *ngIf="isAdmin()">
+                                        <div class="no-overflow"> <span></span> </div>
+                                    </div>
+                                     <div class="item-col item-col-header item-col-stats" *ngIf="isAdmin()">
+                                        <div class="no-overflow"> <span></span> </div>
+                                    </div>
+                                     <!--<div class="item-col item-col-header fixed item-col-actions-dropdown" *ngIf="isAdmin()"> </div>-->
                                 </div>
                             </li>
                             <li class="item" *ngIf="users">
@@ -183,7 +189,19 @@ class="col-lg-3 col-md-3 col-sm-6 col-xs-12" -->
                                             <div class="btn btn-primary-outline" *ngIf="!user.isAdmin">User</div>
                                         </div>
                                     </div>
-                                    <div class="item-col fixed item-col-actions-dropdown" *ngIf="isAdmin()">
+                                     <div class="item-col item-col-stats no-overflow" *ngIf="isAdmin()">
+                                        <div class="item-heading"></div>
+                                        <div class="no-overflow">
+                                            <a class="edit" [routerLink]="['/user', user._id]"> <i class="fa fa-pencil"></i> </a>
+                                        </div>
+                                    </div>
+                                     <div class="item-col item-col-stats no-overflow" *ngIf="isAdmin()">
+                                        <div class="item-heading"></div>
+                                        <div class="no-overflow">
+                                             <a class="remove" href="#" data-toggle="modal" data-target="#confirm-modal"> <i class="fa fa-trash-o "></i> </a>
+                                        </div>
+                                    </div>
+                                    <!--<div class="item-col fixed item-col-actions-dropdown" *ngIf="isAdmin()">
                                         <div class="item-actions-dropdown">
                                             <a class="item-actions-toggle-btn"> <span class="inactive">
 									<i class="fa fa-cog"></i>
@@ -201,7 +219,7 @@ class="col-lg-3 col-md-3 col-sm-6 col-xs-12" -->
                                                 </ul>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
                             </li>
                        

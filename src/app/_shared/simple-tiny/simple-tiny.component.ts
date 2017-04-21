@@ -13,6 +13,7 @@ import 'tinymce/themes/modern';
 import 'tinymce/plugins/table';
 import 'tinymce/plugins/link';
 
+
   declare  var tinymce: any;
 
   const contentAccessor = {
@@ -31,8 +32,8 @@ import 'tinymce/plugins/link';
 export class SimpleTinyComponent implements AfterViewInit, ControlValueAccessor ,OnDestroy   {
 
 
-   private onTouch: Function;
-  private onModelChange: Function;
+   private onTouch: () => void = () => { };
+  private onModelChange:(_: any) => void = () => { };
 
   registerOnTouched(fn) {
     this.onTouch = fn;
@@ -41,12 +42,12 @@ export class SimpleTinyComponent implements AfterViewInit, ControlValueAccessor 
     this.onModelChange = fn;
   }
 
-  writeValue(value) {
-    this.editorContent = value;
-  }
+  // writeValue(value) {
+  //   this.editorContent = value;
+  // }
 
    @Input() elementId: String;
-    @Input() model: String;
+    @Input() content: String;
    @Output() onEditorContentChange = new EventEmitter();
 
   constructor() { }
@@ -59,13 +60,15 @@ export class SimpleTinyComponent implements AfterViewInit, ControlValueAccessor 
 
     tinymce.init({
       selector:  `#${this.elementId}`,
+      // valid_elements : '*[*]',
+       toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
       plugins: ['link', 'paste', 'table'],
-      skin_url: 'assets/skins/lightgray',
+      skin_url: '/assets/skins/lightgray',
       
       setup: editor => {
         this.editor = editor;
-      
        editor.on('keyup change', () => {
+         console.log("hello ",editor.getContent())
           const tinyContent = editor.getContent();
           this.editorContent = tinyContent;
           this.onEditorContentChange.emit(tinyContent);
@@ -75,8 +78,19 @@ export class SimpleTinyComponent implements AfterViewInit, ControlValueAccessor 
         });
       },
     });
+     if (this.content) {
+      tinymce.activeEditor.setContent(this.content);
+    } 
   }
-
+ 
+     writeValue(value: string) {
+  if (value) {
+    this.content = value;
+    if (tinymce.activeEditor) {
+      tinymce.activeEditor.setContent(this.content);
+    }
+  }
+}
   ngOnDestroy() {
     tinymce.remove(this.editor);
   }

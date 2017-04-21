@@ -5,7 +5,7 @@ import { UserService } from '../../_shared/services/user.service';
 import { User } from '../../_shared/models/users';
 import { matchingPassword } from './validators';
 
-
+//declare var $ref: any ;
 
 @Component({
     selector: 'app-register',

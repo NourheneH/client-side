@@ -24,16 +24,25 @@
                     <div class="row" *ngIf="tags">
                                 <div class="col-xl-4" *ngFor="let tag of tags | arraySort:'tag.created_at' | paginate: {itemsPerPage: 4, currentPage:page, id: '1'}">
                                 <div class="card card-primary" >
-                               <div class="card-header"> 
-                               <div class="header-block">
+                               <div class="card-header">
+                                  <div class="header-block">
                                     <p class="title">{{tag.name}} </p>
+                                    <!--<p>{{tag._id}}</p>-->
                                </div>
+                                <div *ngIf="isAdmin()" >
+                                 <a [routerLink]="['/tag', tag._id]"> <i class="fa fa-pencil"></i> </a>
+                                
+                                 <a (click)="deleteTag(tag._id)" value="delete"> <i class="fa fa-trash-o "></i> </a>
+                                </div>
+                                <!--<div> 
+                                    <button (click)="onClick()">Alert</button>
+                                </div>-->
                                    </div>
                                <div  class="card-block" [innerHtml]= "tag.description">
                                   <p> {{tag.description}} </p>
 
                                   </div>
-                                  <div class="card-footer"> <i class="fa fa-calendar">  {{tag.created_at | date:'medium'}} </i></div>
+                                  <div class="card-footer"> <i class="fa fa-calendar">  {{tag.updated_at | date:'medium'}} </i></div>
                                 </div>
                                 </div>
                                 </div>

@@ -31,6 +31,7 @@ import { AddTagsComponent } from './tags/add-tags/add-tags.component';
 import { TopicsComponent } from './topics/topics-list/topics.component';
 import { AddTopicComponent } from './topics/add-topic/add-topic.component';
 import { TopicDetailsComponent } from './topics/topic-details/topic-details.component';
+import { UpdateTagsComponent } from './tags/update-tags/update-tags.component';
 
 
 
@@ -57,6 +58,7 @@ import { TopicDetailsComponent } from './topics/topic-details/topic-details.comp
     TopicsComponent,
     AddTopicComponent,
     TopicDetailsComponent,
+    UpdateTagsComponent,
 
     
   ],

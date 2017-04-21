@@ -49,4 +49,45 @@ export class TagService {
 
     }
 
+    /**
+     * Get tag by id 
+     * @param {string}
+     * @returns{Observable<Tag>}
+     */
+    getTagbyId(id): Observable<Tag> {
+        return this.http.get(Base_Url + '/tags/id/' + id)
+            // ...and calling .json() on the response to return data
+            .map((res: Response) => res.json().data)
+            //...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+    /**
+     * Update Tag
+     * @param {Tag}
+     * @returns {Observable<Tag>}
+     */
+    updateTag(tag): Observable<Tag> {
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.put(Base_Url + '/tags/edit/' + tag._id, JSON.stringify(tag), { headers: headers })
+            // ...and calling .json() on the response to return data
+            .map((res: Response) => res.json().data)
+            //...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    /**
+     * Delete Tag
+     * @param {string}
+     * @returns {boolean}
+     */
+    deleteTag(id): Observable<any> {
+        return this.http.delete(Base_Url +'/tags/' + id)
+             // ...and calling .json() on the response to return data
+            .map((res: Response) => res.json().data)
+            //...errors if any
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+
+    }
+
 }
